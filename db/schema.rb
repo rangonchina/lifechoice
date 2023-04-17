@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2023_04_15_065432) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.integer "goal_id"
     t.integer "user_id"
     t.integer "theme_id"
     t.integer "status"
@@ -39,8 +38,7 @@ ActiveRecord::Schema.define(version: 2023_04_15_065432) do
   end
 
   create_table "themes", force: :cascade do |t|
-    t.integer "theme_id"
-    t.integer "name"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
