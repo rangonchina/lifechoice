@@ -10,7 +10,7 @@ devise_for :users, controllers: {
 
 # 管理者用
 # URL /admin/sign_in ...
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admins, controllers: {
   sessions: "admin/sessions"
 }
   # 会員側のルーティング設定
