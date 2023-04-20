@@ -1,2 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+.mainvisual{
+    width:2000px;
+    height:1000px;
+    background-image: url("../images/top.jpg");
+    background-size: cover;
+}

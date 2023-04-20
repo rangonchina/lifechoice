@@ -19,6 +19,7 @@ devise_for :users, controllers: {
     get "homes/about" => "homes#about", as: "about"
     get "users/themes" => "themes#index"
     get "/goals/new" => "goals#new"
+    resources :themes, only: [:index]
   end
   
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
