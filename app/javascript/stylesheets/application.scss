@@ -1,8 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+
+body{
+    font-family: 'Noto Serif JP', serif;
+}
 .mainvisual{
-    width:2000px;
-    height:1000px;
+    width:1500px;
+    height:700px;
+    margin:auto;
+    margin-top: 5px;
     background-image: url("../images/top.jpg");
     background-size: cover;
+}
+
+ .link-concept, .link-life-choice{
+    font-size: 30px;
+}
+
+.life-list{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

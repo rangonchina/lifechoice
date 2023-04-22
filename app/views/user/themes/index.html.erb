@@ -1,16 +1,32 @@
 <div class="container">
     <h4>Life List</h4>
-     <div class="row">
-        
+    <div class="row">
+     <div class="life-list">
             <%#= image_tag( '画像ファイルのパス', size: '横幅x高さ' %>
-            <%= image_tag '1.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '2.jpg', size: '285x170',class: "col-xs-3"%>
-            <%= image_tag '3.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '4.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '5.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '6.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '7.jpg', size: '285x170',class: "col-xs-3" %>
-            <%= image_tag '8.jpg', size: '285x170',class: "col-xs-3" %>
-        
+            <%=link_to goals_new_path do %>
+              <%= image_tag '1.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '2.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '3.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '4.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '5.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '6.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '7.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
+            <%=link_to goals_new_path do %>
+              <%= image_tag '8.jpg', size: '275x160',class: "col-xs-3" %>
+            <%end%>
      </div>
+    </div>
 </div>
