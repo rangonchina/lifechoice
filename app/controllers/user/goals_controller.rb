@@ -4,9 +4,17 @@ class User::GoalsController < ApplicationController
     @goal = Goal.new 
   end
   
+  def index 
+    @goal = Goal.all  
+  end
+  
   def show
     @goal =  Goal.find(params[:id])  
       
+  end
+  
+  def edit
+    @goal = Goal.find(params[:id])
   end
     
    #投稿データの保存

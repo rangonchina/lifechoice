@@ -20,7 +20,7 @@ devise_for :users, controllers: {
     get "users/themes" => "themes#index"
     get "/goals/new" => "goals#new"
     resources :themes, only: [:index]
-    resources :goals, only: [:new, :show, :create]
+    resources :goals, only: [:new, :index, :show, :edit, :create]
     
 
   end
