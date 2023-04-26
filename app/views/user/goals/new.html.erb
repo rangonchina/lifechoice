@@ -1,18 +1,18 @@
 <div class="container">
+ <div class="user_n">
+    <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
+
+  <%= form_with model: @goal, url:goals_path do |f| %>
   
-  <h1>投稿画面</h1>
-<!-- form_with部分 -->
-<%= form_with model: @goal, url:goals_new_path do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  
-  <%= f.select :theme_id, Theme.all.map { |theme| [theme.name, theme.id] } %>
-  
+    <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
+    <%= f.hidden_field :theme_id, :value => @theme_id %>
 	
-  <h4>本文</h4>
-  <%= f.text_area :body %>
+    <h4>気持ち</h4>
+    <%= f.text_area :body %>
 	
-  <%= f.submit '投稿' %>
-<% end %>
+     <%= f.submit '投稿' %>
+  <% end %>
+ 
+ </div>
 
 </div>

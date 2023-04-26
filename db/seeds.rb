@@ -18,9 +18,9 @@ Theme.create!([
     {name: "仕事以外に夢中になれるものを持つ"}
     ])
     
-#Goal.create!([
-    #{status: "すでに決まっている"}
-    #{status: "まだ考えている"}
-    #{status: "何も考えていない"}
-    #{status: "すでに達成した"}
-    #])
+# # Goal.create!([
+#     {status: "すでに決まっている"},
+#     {status: "まだ考えている"},
+#     {status: "何も考えていない"},
+#     {status: "すでに達成した"}
+    # ])

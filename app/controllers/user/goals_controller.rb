@@ -1,7 +1,8 @@
 class User::GoalsController < ApplicationController
     
   def new
-    @goal = Goal.new 
+    @goal = Goal.new
+    @theme_id = params[:theme_id]
   end
   
   def index 
@@ -28,7 +29,8 @@ class User::GoalsController < ApplicationController
   private
   # ストロングパラメータ
   def goal_params
-    params.require(:goal).permit(:title, :body, :theme_id)
+    params[:goal][:status] = params[:goal][:status].to_i
+    params.require(:goal).permit(:title, :body, :status, :theme_id)
   end
     
     

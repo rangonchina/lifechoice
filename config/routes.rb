@@ -18,7 +18,7 @@ devise_for :users, controllers: {
     root to: 'homes#top'
     get "homes/about" => "homes#about", as: "about"
     get "users/themes" => "themes#index"
-    get "/goals/new" => "goals#new"
+    get "/goals/new/:theme_id" => "goals#new", as: "goals_new"
     resources :themes, only: [:index]
     resources :goals, only: [:new, :index, :show, :edit, :create]
     

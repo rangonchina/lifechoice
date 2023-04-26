@@ -1,7 +1,10 @@
-<h2>タイトル</h2>
-<p><%= @goal.title %></p>
 
-<p><%= @goal.theme.name %></p>
+<p><%= @goal.status %></p>
+
+<!--<p><#%= @goal.theme.name %></p>-->
 
 <h2>本文</h2>
 <p><%= @goal.body %></p>
+
+<%= link_to "投稿一覧画面", goals_path %>
+<%= link_to "Life List​",users_themes_path %>

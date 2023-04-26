@@ -1,18 +1,11 @@
 <div class="container">
   
-  <h1>投稿一覧画面＜/h1>
-<!-- form_with部分 -->
-<%= form_with model: @goal, url:goals_path do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+  <h1>投稿一覧画面</h1>
+<% @goal.each do |goal| %>
+
+<span><%= goal.body %></span>
   
-  <%= f.select :theme_id, Theme.all.map { |theme| [theme.name, theme.id] } %>
-  
-	
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-	
-  <%= f.submit '投稿' %>
-<% end %>
+<% end %><br>
+<%= link_to "Life List​",users_themes_path %>
 
 </div>
