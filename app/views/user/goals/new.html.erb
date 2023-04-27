@@ -1,18 +1,31 @@
 <div class="container">
- <div class="user_n">
+ <head>
+    <div class="user_new">
     <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
-
+ </head>
+ 
+ <body>
   <%= form_with model: @goal, url:goals_path do |f| %>
+  <style>
+ .box select{
+    width: 600px;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+ }</style>
   
+  <div class="box">
     <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
     <%= f.hidden_field :theme_id, :value => @theme_id %>
+	 </div>
+	 
+    <h4>　　　</h4>
+    <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
 	
-    <h4>気持ち</h4>
-    <%= f.text_area :body %>
-	
-     <%= f.submit '投稿' %>
+     <!--<%#= f.submit '投稿する' %>-->
+     <p><input class="shadow-3" type="submit" value="投稿する"></p>
   <% end %>
- 
- </div>
+  </body>
+    </div>
 
 </div>

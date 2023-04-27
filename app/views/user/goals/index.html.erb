@@ -9,3 +9,27 @@
 <%= link_to "Life List​",users_themes_path %>
 
 </div>
+
+<div class="container">
+    <% @goal.each do |goal| %>
+    <div class="card-deck mb-3 text-center">
+      
+       <div class= "card mb-4 shadow-sm">
+       <div class="card-header">
+           <h4 class="my-0 font-weight-normal">画像</h4>
+       </div>
+       
+      <div class="card-body">
+          <div class="card-title pricing-card-title">
+            <h4><%= goal.status %></h4>
+            <p><%= goal.body %></p>
+          </div>
+          <% end %><br>
+      </div>
+       </div>
+    </div>
+
+<%= link_to "投稿一覧画面", goals_path, class:"btn btn-outline-secondary" %>
+<%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+
+</div>
