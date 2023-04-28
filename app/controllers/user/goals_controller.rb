@@ -7,6 +7,7 @@ class User::GoalsController < ApplicationController
   
   def index 
     @goal = Goal.all  
+    @theme_id = params[:theme_id]
   end
   
   def show
@@ -25,6 +26,12 @@ class User::GoalsController < ApplicationController
    @goal.user_id = current_user.id
    @goal.save
    redirect_to goal_path(@goal.id)
+  end
+    
+  def destroy
+    @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
+    @goal.destroy  # データ（レコード）を削除
+    redirect_to goal_path  # 投稿一覧画面へリダイレクト  
   end
     
   private

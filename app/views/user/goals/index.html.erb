@@ -1,21 +1,13 @@
-<div class="container">
-  
-  <h1>投稿一覧画面</h1>
-<% @goal.each do |goal| %>
 
-<span><%= goal.body %></span>
-  
-<% end %><br>
-<%= link_to "Life List​",users_themes_path %>
-
-</div>
-
-<div class="container">
-    <% @goal.each do |goal| %>
+  <div class="container">
+   <h3>My Life Box​</h3>
+    <% @goal.each do |goal| %> 
     <div class="card-deck mb-3 text-center">
       
        <div class= "card mb-4 shadow-sm">
+         
        <div class="card-header">
+          
            <h4 class="my-0 font-weight-normal">画像</h4>
        </div>
        
@@ -28,7 +20,7 @@
       </div>
        </div>
     </div>
-
+<%= link_to "削除", destroy_goal_path(@goal.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <%= link_to "投稿一覧画面", goals_path, class:"btn btn-outline-secondary" %>
 <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
 
