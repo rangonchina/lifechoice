@@ -76,3 +76,16 @@ body{
   height: 50px;
   font-size: 15px;
 }
+
+.card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 90px;
+}
+
+.card-columns {
+    widows: unset;
+    margin-top: 50px; 
+}

@@ -12,8 +12,7 @@ class User::GoalsController < ApplicationController
   
   def show
     @goal =  Goal.find(params[:id])  
-  
-      
+    # @theme_id = params[:theme_id]
   end
   
   def edit
@@ -29,9 +28,9 @@ class User::GoalsController < ApplicationController
   end
     
   def destroy
-    @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
-    @goal.destroy  # データ（レコード）を削除
-    redirect_to goal_path  # 投稿一覧画面へリダイレクト  
+     @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
+     @goal.destroy  # データ（レコード）を削除
+     redirect_to goals_path  # 投稿一覧画面へリダイレクト  
   end
     
   private
