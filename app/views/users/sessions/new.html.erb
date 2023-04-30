@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Log in</h2>
 <%= form_with model: @user, url: session_path do |f| %>
 
@@ -7,7 +8,7 @@
 　</div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %><br >
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -24,3 +25,4 @@
 <% end %>
 
 <%= render "user/shared/links" %>
+</div>
