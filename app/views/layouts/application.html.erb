@@ -25,29 +25,35 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
              <li class="nav-item">
-              <%= link_to "My Life Box",  goals_path %>
+              <%= link_to "・Life Echo Box",  goals_all_path, class: 'nav-link text-dark' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to "・My Life Box",  goals_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Life List", users_themes_path %>
-            </li>
-            <li>
-              <%= link_to 'マイページ', user_path(current_user.id) %>
+              <%= link_to "・Life List", users_themes_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to '・My Page', user_path(current_user.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "・Log Out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "Concept", new_user_registration_path, class: 'nav-link text-dark,fw-lighter' %>
+              <%= link_to "・Concept", new_user_registration_path, class: 'nav-link text-dark,fw-lighter' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up",  new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Sign Up",  new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Profile", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Profile", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Life List", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Life List", new_user_session_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "・Life Echo Box",  goals_all_path, class: 'nav-link text-dark' %>
             </li>
             
             <% end %>

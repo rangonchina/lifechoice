@@ -1,9 +1,10 @@
-
-  <div class="container">
-   <h3>My Life Box​</h3>
-    <div class="row text-center">
-   
-   
+<div class="container">
+    <% if @all%>
+      <h3>Life Echo Box</h3>
+    <% else %>
+      <h3>My Life Box​</h3>
+    <% end %>
+ <div class="row text-center">
     <% @goals.each do |goal| %> 
     <%#=link_to goal_path(current_user)(1) do %>
       <div class="col-md-4 col-sm-6">
@@ -30,7 +31,11 @@
     </div>
     
       
-<%= link_to "All Life Box", goals_all_path, class:"btn btn-outline-secondary" %>
+<% if @all%>
+  <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
+<% else %>
+  <%= link_to "Life Echo Box", goals_all_path, class:"btn btn-outline-secondary" %>
+<% end %>
 <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
 
 </div>

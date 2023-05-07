@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
   
- def show
+    def show
         @user = current_user
     end
     

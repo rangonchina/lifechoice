@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :users, path: :user, controllers: {
