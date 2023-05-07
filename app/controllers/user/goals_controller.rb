@@ -6,8 +6,14 @@ class User::GoalsController < ApplicationController
   end
   
   def index 
-    @goal = Goal.all.order(created_at: :desc)
+    @goals = current_user.goals.order(created_at: :desc)
     @theme_id = params[:theme_id]
+  end
+  
+  def all_index
+    @goals = Goal.all.order(created_at: :desc)
+    @theme_id = params[:theme_id]
+    render 'index'
   end
   
   def show

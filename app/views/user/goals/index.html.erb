@@ -4,7 +4,7 @@
     <div class="row text-center">
    
    
-    <% @goal.each do |goal| %> 
+    <% @goals.each do |goal| %> 
     <%#=link_to goal_path(current_user)(1) do %>
       <div class="col-md-4 col-sm-6">
         <div class= "card mb-4 shadow-sm">
@@ -14,11 +14,14 @@
           </div>
          
           <div class="card-body">
+             <p><%= goal.user.name %></p>
               <div class="card-title pricing-card-title">
                 <h4><%= goal.status %></h4>
                 <p><%= goal.body %></p>
               </div>
+              <% if goal.user == current_user %>
               <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              <% end %>
           </div>
         </div>
       </div>
@@ -27,7 +30,7 @@
     </div>
     
       
-<%= link_to "投稿一覧画面", goals_path, class:"btn btn-outline-secondary" %>
+<%= link_to "All Life Box", goals_all_path, class:"btn btn-outline-secondary" %>
 <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
 
 </div>
