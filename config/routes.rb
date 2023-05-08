@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  devise_for :users
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :users, path: :user, controllers: {
@@ -25,9 +24,9 @@ devise_for :users, path: :user, controllers: {
     resources :themes, only: [:index]
     resources :goals, only: [:new, :index, :show, :edit, :create]
     resources :users, only: [:show, :edit, :update]
-    
-
+    resources :goals, only: [:new, :create, :index, :show, :destroy] do
+    resources :post_comments, only: [:create]
   end
-  
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  end
 end
