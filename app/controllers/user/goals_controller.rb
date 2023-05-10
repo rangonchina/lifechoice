@@ -20,6 +20,7 @@ class User::GoalsController < ApplicationController
   
   def show
     @goal =  Goal.find(params[:id])  
+    @post_comment = PostComment.new
     # @theme_id = params[:theme_id]
   end
   

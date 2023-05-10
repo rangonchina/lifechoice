@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_08_121510) do
+ActiveRecord::Schema.define(version: 2023_05_10_123059) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2023_05_08_121510) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "goals", force: :cascade do |t|
@@ -43,6 +50,8 @@ ActiveRecord::Schema.define(version: 2023_05_08_121510) do
     t.integer "post_image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "goal_id", null: false
+    t.index ["goal_id"], name: "index_post_comments_on_goal_id"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -66,4 +75,5 @@ ActiveRecord::Schema.define(version: 2023_05_08_121510) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "post_comments", "goals"
 end

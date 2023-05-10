@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container textbody-order">
     <% if @all%>
       <h3>Life Echo Box</h3>
     <% else %>
@@ -8,13 +8,14 @@
     <% @goals.each do |goal| %> 
     <%#=link_to goal_path(current_user)(1) do %>
       <div class="col-md-4 col-sm-6">
+        <%= link_to goal_path(goal.id) do %>
         <div class= "card mb-4 shadow-sm">
            
           <div class="card-header bg-white">
            <%= image_tag "#{goal.theme_id}_new.jpg", class: "img-fluid" %>
           </div>
          
-          <div class="card-body">
+          <div class="card-body textbody-color">
              <p><%= goal.user.name %></p>
               <div class="card-title pricing-card-title">
                 <h4><%= goal.status %></h4>
@@ -24,7 +25,9 @@
               <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
               <% end %>
           </div>
+           <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
         </div>
+        <% end %>
       </div>
     <%# end %>
     <% end %>

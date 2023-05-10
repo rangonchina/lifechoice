@@ -25,7 +25,8 @@ devise_for :users, path: :user, controllers: {
     resources :goals, only: [:new, :index, :show, :edit, :create]
     resources :users, only: [:show, :edit, :update]
     resources :goals, only: [:new, :create, :index, :show, :destroy] do
-    resources :post_comments, only: [:create]
+    resources :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end

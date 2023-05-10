@@ -12,10 +12,44 @@
             <p><%= @goal.body %></p>
           </div>
       </div>
+      
+      <!--コメント機能-->
+      <div>
+  <p>コメント件数：<%= @goal.post_comments.count %></p>
+  <% @goal.post_comments.each do |post_comment| %>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+     <% if post_comment.user == current_user %>
+     <%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %>
+     <% end %>
+     
+        <!--いいね機能-->
+      <% if @goal.favorited_by?(current_user) %>
+    <p>
+      <%= link_to goal_favorites_path(@goal), method: :delete do %>
+        ♥<%= @goal.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to goal_favorites_path(@goal), method: :post do %>
+        ♡<%= @goal.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@goal, @post_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+      
        </div>
     </div>
 
-<%= link_to "投稿一覧画面", goals_path, class:"btn btn-outline-secondary" %>
+<%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
 <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
 
 </div>
