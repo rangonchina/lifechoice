@@ -16,7 +16,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-1" href="/"><%= image_tag('logo.png') %></a>
+          <a class="navbar-brand p-1" href="/"><%= image_tag('logo.png',size: "170x75") %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,16 +41,16 @@
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "・Concept", new_user_registration_path, class: 'nav-link text-dark,fw-lighter' %>
+              <%= link_to "・Concept", about_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "・Sign Up",  new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Sign Up", new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "・Profile", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Log in", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "・Life List", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "・Life List", users_themes_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "・Life Echo Box",  goals_all_path, class: 'nav-link text-dark' %>

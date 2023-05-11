@@ -17,7 +17,7 @@ devise_for :users, path: :user, controllers: {
   scope module: :user do
     root to: 'homes#top'
     get "homes/about" => "homes#about", as: "about"
-    get "users/themes" => "themes#index"
+    get "users/themes" => "themes#theme_index"
     get "/goals/new/:theme_id" => "goals#new", as: "goals_new"
     get "/goals/all" => "goals#all_index", as: "goals_all"
     delete 'goal/:id' => 'goals#destroy', as: 'destroy_goal'

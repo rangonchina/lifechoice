@@ -1,6 +1,6 @@
 class User::ThemesController < ApplicationController
     
-    def index
+    def theme_index
         @goal = Goal.all
     end
     

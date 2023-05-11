@@ -28,7 +28,7 @@
         </table>
         
           <strong class="information-link"><%= link_to " 編集する", edit_user_path, class:"btn btn-outline-secondary" %></strong>
-          <strong class="information-link"><%= link_to "退会する", withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" } %></strong>
+          <strong class="information-link"><%= link_to "退会する", withdrawal_path, class:"btn btn-outline-secondary",  method: :patch, data: { confirm: "本当に退会しますか？" } %></strong>
         
         <strong><%= link_to " My Life Box", goals_path, class:"btn btn-outline-secondary" %></strong>
         
