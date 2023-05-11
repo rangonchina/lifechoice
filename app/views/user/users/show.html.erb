@@ -24,10 +24,11 @@
                 <td class="form-group">年齢</td>
                 <td><%= current_user.age %></td>
             </tr>
-            <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
+            <!--<p><%#= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>-->
         </table>
         
           <strong class="information-link"><%= link_to " 編集する", edit_user_path, class:"btn btn-outline-secondary" %></strong>
+          <strong class="information-link"><%= link_to "退会する", withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" } %></strong>
         
         <strong><%= link_to " My Life Box", goals_path, class:"btn btn-outline-secondary" %></strong>
         

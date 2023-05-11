@@ -21,6 +21,7 @@ devise_for :users, path: :user, controllers: {
     get "/goals/new/:theme_id" => "goals#new", as: "goals_new"
     get "/goals/all" => "goals#all_index", as: "goals_all"
     delete 'goal/:id' => 'goals#destroy', as: 'destroy_goal'
+    patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :themes, only: [:index]
     resources :goals, only: [:new, :index, :show, :edit, :create]
     resources :users, only: [:show, :edit, :update]

@@ -2,6 +2,7 @@ class User::UsersController < ApplicationController
   
     def show
         @user = current_user
+        
     end
     
        # 登録情報編集へのアクション
@@ -18,6 +19,15 @@ class User::UsersController < ApplicationController
         else
             render 'edit'
         end
+    end
+    
+    def withdrawal
+        # @user = User.find(params[:id])
+        # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+        current_user.update(is_deleted: true)
+        reset_session
+        flash[:notice] = "退会処理を実行いたしました"
+        redirect_to root_path
     end
     
       private
