@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 devise_for :users, path: :user, controllers: {
   registrations: "user/registrations",
   sessions: 'user/sessions'
-  
 }
 
 # 管理者用
@@ -31,4 +30,14 @@ devise_for :users, path: :user, controllers: {
   end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
+  
+   # 管理者側のルーティング設定
+   namespace :admin do
+   get '/' => 'homes#top'
+   get "admins/themes" => "themes#theme_index"
+  # resources :genres, only: [:index, :create, :edit, :update]
+  # resources :customers, only: [:index, :show, :edit, :update]
+  # resources :orders, only: [:show, :update]
+  # resources :order_details, only: [:update]
+ end
 end
