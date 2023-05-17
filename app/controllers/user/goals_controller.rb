@@ -33,7 +33,7 @@ class User::GoalsController < ApplicationController
    @goal = Goal.new(goal_params)
    @goal.user_id = current_user.id
    @goal.save
-   redirect_to goal_path(@goal.id)
+   redirect_to goals_path(@goal.id)
   end
     
   def destroy

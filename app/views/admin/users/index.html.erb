@@ -1,0 +1,38 @@
+<div class="container">
+ <div class="row mb-5">
+  <div class="offset-md-3 col-md-6">
+    <h4 class="my-5">会員一覧</h4>
+      <div class="col-xs-10 col-xs-offset-1">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <% if user.is_deleted == false %>
+                有効
+                <% else %>
+                退会
+                <% end %>
+              </td>
+            </tr
+            <% end %> 
+        </tbody>
+      </table>
+      
+    </div>
+   </div>
+  </div>
+</div>

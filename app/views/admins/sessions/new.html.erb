@@ -1,5 +1,7 @@
 <div class="container">
-<h2>管理者ログイン</h2>
+ <div class="row mb-5">
+  <div class="offset-md-3 col-md-6">
+     <h4 class="my-5">管理者ログイン</h4>
 
 <%= form_with model: @admin, url: admin_session_path do |f| %>
 
@@ -15,9 +17,12 @@
 
 
   <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <%= f.submit "ログイン", class: "btn btn-outline-secondary" %>
   </div>
-<% end %>
+    <% end %>
+    
+  </div>
+ </div>
 </div>
 
 

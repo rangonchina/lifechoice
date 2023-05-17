@@ -6,13 +6,13 @@
     <!-- 管理者ユーザー -->
     <div class="row">
       <% Theme.all.each do |theme| %>
-     <div class="life-list<%= theme.id %>">
-        <%=link_to goals_new_path(theme.id) do %>
-          <%= image_tag "#{theme.id}.jpg", size: '275x160',class: "col-xs-3" %>
+     <div class="life-list<%= theme.image_id %>">
+        <%=link_to goals_new_path(theme.image_id) do %>
+         <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
         <% end %>
      </div>
      <!--削除ボタン-->
-     <%# link_to '削除', @goal, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger' %>
+        <%#= link_to '削除', admin_theme_path(theme), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger' %>
       <% end %>
     </div>
     
@@ -20,8 +20,8 @@
     <!-- 一般ユーザー -->
     <div class="row">
       <% Theme.all.each do |theme| %>
-     <div class="life-list<%= theme.id %>">
-       <%= image_tag "#{theme.id}.jpg", size: '275x160',class: "col-xs-3" %>
+     <div class="life-list<%= theme.image_id %>">
+       <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
      
       </div>
       <% end %>
