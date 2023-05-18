@@ -1,9 +1,9 @@
 class Admin::GoalsController < ApplicationController
   
-  def show
-    @goal =  Goal.find(params[:id])  
-    @post_comment = PostComment.new
-    # @theme_id = params[:theme_id]
+  def index
+   @theme = Theme.find(params[:theme])
+   @goals = @theme.goals
+#   @post_comments = PostComment.where(goal_id: params[:theme])
   end
   
     

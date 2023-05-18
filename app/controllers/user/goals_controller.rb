@@ -3,19 +3,17 @@ class User::GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @theme_id = params[:theme_id]
+    @theme = Theme.find_by(image_id: @theme_id)
   end
   
   def index 
     @goals = current_user.goals.order(created_at: :desc)
     @theme_id = params[:theme_id]
-    @all = false
   end
   
   def all_index
     @goals = Goal.all.order(created_at: :desc)
     @theme_id = params[:theme_id]
-    @all = true
-    render 'index'
   end
   
   def show
@@ -30,9 +28,10 @@ class User::GoalsController < ApplicationController
     
    #投稿データの保存
   def create
+   params[:goal][:status] = params[:goal][:status].to_i
    @goal = Goal.new(goal_params)
    @goal.user_id = current_user.id
-   @goal.save
+   @goal.save!
    redirect_to goals_path(@goal.id)
   end
     
@@ -45,7 +44,7 @@ class User::GoalsController < ApplicationController
   private
   # ストロングパラメータ
   def goal_params
-    params[:goal][:status] = params[:goal][:status].to_i
+    # params[:goal][:status] = params[:goal][:status].to_i
     params.require(:goal).permit(:title, :body, :status, :theme_id)
   end
     

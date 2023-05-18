@@ -19,14 +19,14 @@
   
   <div class="box">
     <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
-    <%= f.hidden_field :theme_id, :value => @theme_id %>
+    <%= f.hidden_field :theme_id, :value => @theme.id %>
 	 </div>
 	 
     <h4>　　　</h4>
     <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
 	
-     <!--<%#= f.submit '投稿する' %>-->
-     <p><input class="shadow-3" type="submit" value="投稿する"></p>
+     <%= f.submit '投稿する', class: "shadow-3" %>
+     <!--<p><input class="shadow-3" type="submit" value="投稿する"></p>-->
   <% end %>
   </body>
     </div>
