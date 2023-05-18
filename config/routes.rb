@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   # resources :genres, only: [:index, :create, :edit, :update]
    resources :users, only: [:index]
    resources :themes, only: [:destroy]
-  # resources :orders, only: [:show, :update]
+   resources :goals, only: [:show]
   # resources :order_details, only: [:update]
  end
 end
