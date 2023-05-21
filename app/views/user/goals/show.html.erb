@@ -8,16 +8,20 @@
                     <p class="font-weight-500"><%= @goal.user.name %></p>
                     <p><%= @goal.status %></p>
                     <p><%= @goal.body %></p>
+                    <%= @goal.rate %>
                     <!--星評価-->
-                        <div id="rate-<%= evaluation.id %>"></div>
+                        <div id="star-rate-<%= @goal.id %>"></div>
                           <script>
-                          $('#rate-rate-<%= evaluation.id %>').raty({
-                            size: 36,
+                          var elem = document.getElementById('star-rate-<%= @goal.id %>');
+                          var opt = {
+                            size: 30,
                             starOff:  '<%= asset_path('star-off.png') %>',
                             starOn : '<%= asset_path('star-on.png') %>',
                             readOnly: true,
-                            score: <%= evaluation.rate%>,
-                          });
+                            score: <%= @goal.rate %>,
+                          }
+                          raty(elem, opt);
+                  
                           </script> 
                            <!--/星評価-->
             </div>

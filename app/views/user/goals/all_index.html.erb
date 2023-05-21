@@ -18,6 +18,21 @@
               <div class="card-title pricing-card-title">
                 <h4><%= goal.status %></h4>
                 <p><%= goal.body %></p>
+                 <!--星評価-->
+                        <!--<div id="star-rate-<%#= @goal.id %>"></div>-->
+                        <!--  <script>-->
+                        <!--  var elem = document.getElementById('star-rate-<#%= @goal.id %>');-->
+                        <!--  var opt = {-->
+                        <!--    size: 30,-->
+                        <!--    starOff:  '<%#= asset_path('star-off.png') %>',-->
+                        <!--    starOn : '<%#= asset_path('star-on.png') %>',-->
+                        <!--    readOnly: true,-->
+                        <!--    score: <%#= @goal.rate %>,-->
+                        <!--  }-->
+                        <!--  raty(elem, opt);-->
+                  
+                        <!--  </script> -->
+                   <!--/星評価-->
               </div>
               <% if goal.user == current_user %>
               <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>

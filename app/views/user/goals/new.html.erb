@@ -29,7 +29,22 @@
     <%= f.hidden_field :rate, id: :review_rate %>
   </div>
   <script>
+    
    var elem = document.getElementById('rate');
+   elem.style.display = "none";
+
+   var goal = document.getElementById("goal_status")
+
+   // ID goal_statusのものが変更された場合
+   $("#goal_status").change(function() {
+    // 今何が選択されたか、取得する
+      var selectedNum = $("#goal_status").val()
+      if(selectedNum === "3") {
+       elem.style.display = "block"
+      } else {
+       elem.style.display = "none"
+      }
+   })
    var opt = {
     size: 70,
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -38,7 +53,7 @@
    raty(elem, opt);
   </script>
 	 </div>
-    <%= f.submit '投稿する', class: "shadow-3" %>
+    <%= f.submit '投稿する', class: "shadow-3 mb-3" %>
    
   <% end %>
   <!--</body>-->

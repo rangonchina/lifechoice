@@ -9,17 +9,26 @@ class User::GoalsController < ApplicationController
   def index 
     @goals = current_user.goals.order(created_at: :desc)
     @theme_id = params[:theme_id]
+      # if @goal.rate.nil? then
+      #   @goal.rate=0
+      # end
   end
   
   def all_index
     @goals = Goal.all.order(created_at: :desc)
     @theme_id = params[:theme_id]
+     # if @goal.rate.nil? then
+      #   @goal.rate=0
+      # end
   end
   
   def show
     @goal =  Goal.find(params[:id])  
     @post_comment = PostComment.new
     # @theme_id = params[:theme_id]
+    if @goal.rate.nil? then
+       @goal.rate=0
+    end
   end
   
   def edit
