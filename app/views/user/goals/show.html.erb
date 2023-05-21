@@ -8,6 +8,18 @@
                     <p class="font-weight-500"><%= @goal.user.name %></p>
                     <p><%= @goal.status %></p>
                     <p><%= @goal.body %></p>
+                    <!--星評価-->
+                        <div id="rate-<%= evaluation.id %>"></div>
+                          <script>
+                          $('#rate-rate-<%= evaluation.id %>').raty({
+                            size: 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            readOnly: true,
+                            score: <%= evaluation.rate%>,
+                          });
+                          </script> 
+                           <!--/星評価-->
             </div>
         </div>
         <div class="col comment-wrapper">

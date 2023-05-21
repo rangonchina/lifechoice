@@ -24,14 +24,14 @@
 	 
   <div class= "py-5">
     <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
-    <div class="form-group row" id="rate">
+  <div class="form-group row" id="rate">
     <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
     <%= f.hidden_field :rate, id: :review_rate %>
-    </div>
+  </div>
   <script>
    var elem = document.getElementById('rate');
    var opt = {
-    size: 36,
+    size: 70,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn: '<%= asset_path('star-on.png') %>',
    };
