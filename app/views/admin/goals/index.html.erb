@@ -1,20 +1,8 @@
 <div class="container">
-<h2>コメント管理ページ</h2>
+     <h2 class="my-5">コメント管理ページ</h2>
  <% @goals.each do |goal| %>
 <ul class="d-flex" style="list-style:none;">
  <% goal.post_comments.each do |post_comment| %>
- <!--<li>-->
-  
- <!--  <dl>-->
- <!--    <dt>コメント</dt>-->
- <!--    <dd> <%#= post_comment.comment %></dd>-->
- <!--    <dt>ユーザー名</dt>-->
- <!--    <dd><%#= post_comment.user.name %></dd>-->
- <!--    <dt>記入日</dt>-->
- <!--    <dd><#%= post_comment.created_at.strftime('%Y/%m/%d') %></dd>-->
- <!--  </dl>-->
- <!--  <p class="btn btn-danger"><%#= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %></p> -->
- <!--  </li>-->
  
  <li class="col-6 p-3" style="border: solid 1px lightgray;border-radius:8px;">
    <div class="row">
@@ -24,8 +12,7 @@
    <div>
      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
      <div class="d-flex justify-content-end">
-       <p>good</p>
-       <p><%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete, class: "btn btn-danger" %></p>
+       <p><%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete, class:"btn btn-outline-secondary" %></p>
      </div>
    </div>
  </li>
@@ -33,3 +20,6 @@
  </ul>
  <% end %>
  </div>
+ 
+
+ 

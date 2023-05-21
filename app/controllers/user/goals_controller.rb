@@ -45,7 +45,7 @@ class User::GoalsController < ApplicationController
   # ストロングパラメータ
   def goal_params
     # params[:goal][:status] = params[:goal][:status].to_i
-    params.require(:goal).permit(:title, :body, :status, :theme_id)
+    params.require(:goal).permit(:title, :body, :status, :theme_id, :rate)
   end
     
     

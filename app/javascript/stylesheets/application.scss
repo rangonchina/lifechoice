@@ -1,9 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;500&display=swap');
 
 body{
     font-family: 'Noto Serif JP', serif;
+    font-weight: 200;
 }
 .mainvisual{
     width:1500px;
@@ -98,4 +99,18 @@ body{
 }
 .textbody-order:hover {
   text-decoration: none;
+}
+
+.font-weight-500 {
+ font-weight: 500;
+}
+
+.text-small {
+ font-size: 0.8em;
+}
+
+.comment-wrapper {
+    overflow-y: scroll;
+    /*縦方向はスクロール可*/
+    overflow-x: hidden;
 }

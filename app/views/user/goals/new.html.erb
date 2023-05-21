@@ -1,13 +1,13 @@
 <div class="container">
- <div class="row mb-5">
-  <div class="offset-md-3 col-md-6">
+ <!--<div class="row mb-5">-->
+ <!-- <div class="offset-md-3 col-md-6">-->
     
- <head>
+ <!--<head>-->
     <div class="user_new">
-    <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
- </head>
+     <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
+ <!--</head>-->
  
- <body>
+ <!--<body>-->
   <%= form_with model: @goal, url:goals_path do |f| %>
   <style>
  .box select{
@@ -22,14 +22,27 @@
     <%= f.hidden_field :theme_id, :value => @theme.id %>
 	 </div>
 	 
-    <h4>　　　</h4>
+  <div class= "py-5">
     <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
-	
-     <%= f.submit '投稿する', class: "shadow-3" %>
-     <!--<p><input class="shadow-3" type="submit" value="投稿する"></p>-->
-  <% end %>
-  </body>
+    <div class="form-group row" id="rate">
+    <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate, id: :review_rate %>
     </div>
-  </div>
- </div>
+  <script>
+   var elem = document.getElementById('rate');
+   var opt = {
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn: '<%= asset_path('star-on.png') %>',
+   };
+   raty(elem, opt);
+  </script>
+	 </div>
+    <%= f.submit '投稿する', class: "shadow-3" %>
+   
+  <% end %>
+  <!--</body>-->
+    </div>
+ <!-- </div>-->
+ <!--</div>-->
 </div>
