@@ -1,10 +1,13 @@
 <div class="container">
      <h2 class="my-5">Comment</h2>
+     <!--<div class="border rounded py-1 px-4 text-center">-->
+     <!--  <%#= image_tag "#{@goal.theme.image_id}_new.jpg", size: '275x100',class: "col-xs-3" %>-->
+     <!--</div>-->
  <% @goals.each do |goal| %>
 <ul class="d-flex" style="list-style:none;">
  <% goal.post_comments.each do |post_comment| %>
  
- <li class="col-6 p-3" style="border: solid 1px lightgray;border-radius:8px;">
+ <li class="col-6 p-3 ml-3" style="border: solid 1px lightgray;border-radius:8px;">
    <div class="row">
      <div class="col text-bold" style="font-size: 1.4em;"><%= post_comment.user.name %></div>
      <div class="col"><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>

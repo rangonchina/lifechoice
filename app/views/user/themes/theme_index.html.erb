@@ -7,7 +7,7 @@
     <div class="row">
       <% Theme.all.each do |theme| %>
      <div class="life-list<%= theme.image_id %>">
-        <%=link_to admin_goals_path(theme: theme.id) do %>
+        <%=link_to admin_goals_path(theme.id) do %>
          <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
         <% end %>
      </div>

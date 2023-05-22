@@ -39,6 +39,19 @@
             <li class="nav-item">
               <%= link_to "・Log Out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
+            <% elsif admin_signed_in? %>
+             <li class="nav-item">
+              <%= link_to "・Life List", admin_admins_themes_path, class: 'nav-link text-dark' %>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--  <%#= link_to "・Comment",  admin_goals_path(theme.id), class: 'nav-link text-dark' %>-->
+            <!--</li>-->
+            <li class="nav-item">
+              <%= link_to '・Member', admin_users_path, class: 'nav-link text-dark' %>
+            </li>
+              <li class="nav-item">
+              <%= link_to "・Log Out", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
             <% else %>
             <li class="nav-item">
               <%= link_to "・Concept", about_path, class: 'nav-link text-dark' %>
@@ -54,20 +67,6 @@
             </li>
             <li class="nav-item">
               <%= link_to "・Life Echo Box",  goals_all_path, class: 'nav-link text-dark' %>
-            </li>
-            <% end %>
-            <% if admin_signed_in? %>
-             <li class="nav-item">
-              <%= link_to "・Life List",  admin_theme_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "・Comment",  admin_goals_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to '・Member',admin_users_path, class: 'nav-link text-dark' %>
-            </li>
-              <li class="nav-item">
-              <%= link_to "・Log Out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>

@@ -35,10 +35,12 @@ Rails.application.routes.draw do
    namespace :admin do
    get '/' => 'homes#top'
    get "admins/themes" => "themes#theme_index"
+   get 'admins/goals/:id' => 'goals#index' ,as: 'goals'
+ 
   # resources :genres, only: [:index, :create, :edit, :update]
    resources :users, only: [:index]
    resources :themes, only: [:destroy]
-   resources :goals, only: [:index]
+   #resources :goals, only: [:show]
   # resources :order_details, only: [:update]
  end
 end
