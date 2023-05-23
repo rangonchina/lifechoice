@@ -1,5 +1,5 @@
 class User::GoalsController < ApplicationController
-    
+ before_action :authenticate_user!, except: [:all_index]  
   def new
     @goal = Goal.new
     @theme_id = params[:theme_id]

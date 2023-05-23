@@ -1,8 +1,8 @@
 class Admin::GoalsController < ApplicationController
-  #before_action :authenticate_admin!
+  before_action :authenticate_admin!
   
   def index
-   @theme = Theme.find(params[:id])
+   @theme = Theme.find_by(image_id: params[:id])
    @goals = @theme.goals
    #render '/user/goals/goals_index'
 #   @post_comments = PostComment.where(goal_id: params[:theme])

@@ -1,5 +1,5 @@
 class Admin::ThemesController < ApplicationController
-  
+  before_action :authenticate_admin!
    
     def theme_index
         @goal = Goal.all
