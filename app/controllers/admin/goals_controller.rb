@@ -20,7 +20,7 @@ class Admin::GoalsController < ApplicationController
   def destroy
      @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
      @goal.destroy  # データ（レコード）を削除
-     redirect_to goals_path  # 投稿一覧画面へリダイレクト  
+    redirect_to admin_goals_path 
   end
     
   private
