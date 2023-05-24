@@ -1,58 +1,63 @@
 <div class="container">
-  <div class="row mb-5">
-    <div class="offset-md-3 col-md-6">
-      <div class="user_new">
-         <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
-         <%= form_with model: @goal, url:goals_path do |f| %>
-          <style>
-         .box select{
-            width: 600px;
-            height: 50px;
-            font-size: 25px;
-            text-align: center;
-         }</style>
-      
-           <div class="box">
-             <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
-             <%= f.hidden_field :theme_id, :value => @theme.id %>
-         	 </div>
-    	 
-           <div class= "py-5">
-             <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
-              <div class="form-group row" id="rate">
-                <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
-              </div>
-              
-                <script>  //評価機能
-                  var elem = document.getElementById('rate');
-                  elem.style.display = "none";
-               
-                  var goal = document.getElementById("goal_status")
-               
-                  // ID goal_statusのものが変更された場合
-                  $("#goal_status").change(function() {
-                   // 今何が選択されたか、取得する
-                     var selectedNum = $("#goal_status").val()
-                     if(selectedNum === "3") {
-                      elem.style.display = "block"
-                     } else {
-                      elem.style.display = "none"
-                     }
-                  })
-                  var opt = {
-                   size: 70,
-                   starOff:  '<%= asset_path('star-off.png') %>',
-                   starOn: '<%= asset_path('star-on.png') %>',
-                   scoreName: 'goal[rate]',
-                  };
-                  raty(elem, opt);
-                </script> <!--評価機能end-->
-           </div>
-        
-    
-        <%= f.submit '投稿する', class: "shadow-3 mb-3" %>
-        <% end %>
-      </div> <!--<user_new end-->
+ <div class="row mb-5">
+  <div class="offset-md-3 col-md-6">
+   <div class="user_new">
+    <%= image_tag "#{@theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
+    <%= form_with model: @goal, url:goals_path do |f| %>
+    <style>
+     .box select {
+      width: 600px;
+      height: 50px;
+      font-size: 25px;
+      text-align: center;
+     }
+    </style>
+
+    <div class="box">
+     <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
+     <%= f.hidden_field :theme_id, :value => @theme.id %>
     </div>
+
+    <div class="py-5">
+     <%= f.text_area :body, :size=>"70x15", placeholder: "気持ち" %>
+     <div class="form-group row" id="rate">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+     </div>
+
+     <script>
+      //評価機能
+      var elem = document.getElementById('rate');
+      elem.style.display = "none";
+
+      var goal = document.getElementById("goal_status")
+
+      // ID goal_statusのものが変更された場合
+      $("#goal_status").change(function() {
+       // 今何が選択されたか、取得する
+       var selectedNum = $("#goal_status").val()
+       if (selectedNum === "3") {
+        elem.style.display = "block"
+       }
+       else {
+        elem.style.display = "none"
+       }
+      })
+      var opt = {
+       size: 70,
+       starOff: '<%= asset_path('star-off.png') %>',
+       starOn: '<%= asset_path('star-on.png') %>',
+       scoreName: 'goal[rate]',
+      };
+      raty(elem, opt);
+     </script>
+     <!--評価機能end-->
+    </div>
+
+
+    <%= f.submit '投稿する', class: "shadow-3 mb-3" %>
+    <% end %>
+   </div>
+   <!--<user_new end-->
   </div>
+ </div>
 </div>
