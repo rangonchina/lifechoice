@@ -9,21 +9,22 @@
                     <p><%= @goal.status %></p>
                     <p><%= @goal.body %></p>
                     <%= @goal.rate %>
-                    <!--星評価-->
-                        <div id="star-rate-<%= @goal.id %>"></div>
-                          <script>
-                          var elem = document.getElementById('star-rate-<%= @goal.id %>');
-                          var opt = {
-                            size: 30,
-                            starOff:  '<%= asset_path('star-off.png') %>',
-                            starOn : '<%= asset_path('star-on.png') %>',
-                            readOnly: true,
-                            score: <%= @goal.rate %>,
-                          }
-                          raty(elem, opt);
-                  
-                          </script> 
-                           <!--/星評価-->
+                    
+                <!--星評価-->
+                 <div id="star-rate-<%= @goal.id %>"></div>
+                    <script>
+                         var elem = document.getElementById('star-rate-<%= @goal.id %>');
+                         var opt = {
+                         size: 30,
+                         starOff:  '<%= asset_path('star-off.png') %>',
+                         starOn : '<%= asset_path('star-on.png') %>',
+                        readOnly: true,
+                         score: <%= @goal.rate %>,
+                        }
+                        raty(elem, opt);
+                    </script> 
+                <!--/星評価-->
+                
             </div>
         </div>
         <div class="col comment-wrapper">
@@ -33,33 +34,35 @@
             <div class="comment-wrapper my-3" style="max-height: calc(100vh - 100px - 136px - 48px - 48px - 90px - 86px - 0px);">
                  <div>
                     <p>コメント件数：<%= @goal.post_comments.count %></p>
-                </div>
-                 <% @goal.post_comments.each do |post_comment| %>
+                 </div>
+                    <% @goal.post_comments.each do |post_comment| %>
                 
-                <div class="d-flex align-items-end">
-                    <p class="font-weight-500"><%= post_comment.user.name %></p>
-                    <p class = "ml-4 text-small"><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
-                </div>
-                <div>
-                     <%= post_comment.comment %>
-                </div>
-                <!--いいね機能-->
-                <div class = "d-flex">
-                    <div>
-                        <% if @goal.favorited_by?(current_user) %>
-                        <p>
-                           <%= link_to goal_favorites_path(@goal), method: :delete do %>
-                            ♥<%= @goal.favorites.count %> いいね
-                           <% end %>
-                        </p>
-                        <% else %>
-                        <p>
-                           <%= link_to goal_favorites_path(@goal), method: :post do %>
-                            ♡<%= @goal.favorites.count %> いいね
-                           <% end %>
-                        </p>
-                        <% end %>
+                    <div class="d-flex align-items-end">
+                        <p class="font-weight-500"><%= post_comment.user.name %></p>
+                        <p class = "ml-4 text-small"><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
                     </div>
+                    <div>
+                        <%= post_comment.comment %>
+                    </div>
+                    
+                <!--いいね機能-->
+                   <div class = "d-flex">
+                     <div>
+                        <% if @goal.favorited_by?(current_user) %>
+                            <p>
+                               <%= link_to goal_favorites_path(@goal), method: :delete do %>
+                                ♥<%= @goal.favorites.count %> いいね
+                               <% end %>
+                            </p>
+                        <% else %>
+                            <p>
+                               <%= link_to goal_favorites_path(@goal), method: :post do %>
+                                ♡<%= @goal.favorites.count %> いいね
+                               <% end %>
+                            </p>
+                        <% end %>
+                     </div><!--いいね機能end-->
+                     
                     <div class = "ml-4">
                         <% if post_comment.user == current_user %>
                         <%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %>

@@ -24,7 +24,7 @@
                           <script>
                           var elem = document.getElementById('star-rate-<%= goal.id %>');
                           var opt = {
-                            size: 16,
+                            size: 30,
                             starOff:  '<%= asset_path('star-off.png') %>',
                             starOn : '<%= asset_path('star-on.png') %>',
                             readOnly: true,
@@ -48,8 +48,8 @@
     </div>
     
       
-
-  <%= link_to "Life Echo Box", goals_all_path, class:"btn btn-outline-secondary" %>
-  <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
-
+  <div class= "mb-3">
+    <%= link_to "Life Echo Box", goals_all_path, class:"btn btn-outline-secondary" %>
+    <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+  </div>
 </div>

@@ -83,7 +83,7 @@ body{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  height: 120px;
+  height: 150px;
 }
 
 .card-columns {
@@ -119,8 +119,8 @@ p {
   line-height: 45px;
 }
 
-p 1 {
+p1 {
   line-height: 45px;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
 }
