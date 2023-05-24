@@ -1,37 +1,28 @@
 <div class="container">
-     <h2 class="my-5">Comment</h2>
+     <h2 class="my-5">Commnt</h2>
      <div class="border rounded py-1 px-4 text-center">
-       <%= image_tag "#{@theme.image_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
+       <%= image_tag "#{params[:theme_id]}_new.jpg", size: '275x100',class: "col-xs-3" %>
      </div>
  
-  <div>    
-    <div class="row">
+      <div class="row">
         <% @goals.each do |goal| %>
-          <% goal.post_comments.each do |post_comment| %>
-              <div class="col-6 p-3">
-                <div style="border: solid 1px lightgray;border-radius:8px;">
-                    <div class="col-12">
-                     <div class="col text-bold" style="font-size: 1.4em;"><%= post_comment.user.name %></div>
-                     <div class="col"><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
-                   </div>
-                   <div class="col-12">
-                     <%= post_comment.comment %>
-                     <div class="d-flex justify-content-end">
-                       <p><%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete, class:"btn btn-outline-secondary" %></p>
-                     </div>
-                   </div>
-                </div>
-              </div>
-          <% end %>
+          <div class="col-md-6">
+            <div class="col-12 p-3">
+             <div style="border: solid 1px lightgray;border-radius:8px;">
+              <div class="col text-bold" style="font-size: 1.4em;"><%= goal.user.name %></div>
+              <div class="pl-3"><%=  goal.status %></div>
+              <div class="mb-3 pl-3"><%= link_to goal.body, admin_goal_path(goal.id) %></div>
+             </div>
+            </div>
+          </div>
         <% end %>
-    </div>
+      </div>
+
     <div class= "mb-3 mt-5">
-      <%= link_to "Life List​", admin_admins_themes_path, class:"btn btn-outline-secondary" %>
       <%= link_to "Member​", admin_users_path, class:"btn btn-outline-secondary" %>
     </div>
     
   </div>
  </div>
- 
 
  

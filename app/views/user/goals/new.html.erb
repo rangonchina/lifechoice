@@ -15,7 +15,7 @@
 
     <div class="box">
      <%= f.select :status, Goal.statuses.map { |key, value| [key, value] } %>
-     <%= f.hidden_field :theme_id, :value => @theme.id %>
+     <%= f.hidden_field :theme_id, :value => @theme.image_id %>
     </div>
 
     <div class="py-5">

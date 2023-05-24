@@ -10,7 +10,7 @@
         <div class= "card mb-4 shadow-sm">
            
           <div class="card-header bg-white">
-           <%= image_tag "#{goal.theme.image_id}_new.jpg", class: "img-fluid" %>
+           <%= image_tag "#{goal.theme_id}_new.jpg", class: "img-fluid" %>
           </div>
          
           <div class="card-body textbody-color">
@@ -18,6 +18,7 @@
               <div class="card-title pricing-card-title">
                 <h4><%= goal.status %></h4>
                 <p><%= goal.body %></p>
+                <% if goal.status == 'すでに達成した' %>
                  <!--星評価-->
                         <div id="star-rate-<%= goal.id %>"></div>
                           <script>
@@ -29,10 +30,12 @@
                             readOnly: true,
                             score: <%= goal.rate %>,
                           }
+                          elem.innerHTML = "";
                           raty(elem, opt);
                   
                           </script> 
                  <!--/星評価end-->
+                 <% end %>
               </div>
               <% if goal.user == current_user %>
               <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>

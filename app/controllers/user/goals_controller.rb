@@ -26,9 +26,6 @@ class User::GoalsController < ApplicationController
     @goal =  Goal.find(params[:id])  
     @post_comment = PostComment.new
     # @theme_id = params[:theme_id]
-    if @goal.rate.nil? then
-       @goal.rate=0
-    end
   end
   
   def edit
@@ -41,7 +38,7 @@ class User::GoalsController < ApplicationController
    @goal = Goal.new(goal_params)
    @goal.user_id = current_user.id
    @goal.save!
-   redirect_to goals_path(@goal.id)
+   redirect_to goals_path
   end
     
   def destroy

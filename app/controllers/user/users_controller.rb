@@ -13,7 +13,7 @@ class User::UsersController < ApplicationController
     # 登録情報の編集を保存するアクション
     def update
         @user = current_user
-        if @user.update(customer_params)
+        if @user.update(user_params)
            flash[:success] = "登録情報を変更しました。"
            redirect_to user_path
         else

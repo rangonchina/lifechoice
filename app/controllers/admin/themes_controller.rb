@@ -3,7 +3,6 @@ class Admin::ThemesController < ApplicationController
    
     def theme_index
         @goal = Goal.all
-        render '/user/themes/theme_index'
     end
     
     # def create

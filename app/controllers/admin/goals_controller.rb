@@ -2,32 +2,16 @@ class Admin::GoalsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-   @theme = Theme.find_by(image_id: params[:id])
-   @goals = @theme.goals
+   @goals = Goal.where(theme_id: params[:theme_id])
+  # @goals = @theme.goals
    #render '/user/goals/goals_index'
 #   @post_comments = PostComment.where(goal_id: params[:theme])
   end
   
-    
-   #投稿データの保存
-  def create
-   @goal = Goal.new(goal_params)
-   @goal.user_id = current_user.id
-   @goal.save
-   redirect_to goals_path(@goal.id)
-  end
-    
-  def destroy
-     @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
-     @goal.destroy  # データ（レコード）を削除
-    redirect_to admin_goals_path 
-  end
-    
-  private
-  # ストロングパラメータ
-  def goal_params
-    params[:goal][:status] = params[:goal][:status].to_i
-    params.require(:goal).permit(:title, :body, :status, :theme_id)
+  def show
+      @goal = Goal.find(params[:id])
+      pp '------------------------'
+      pp @goal.post_comments
   end
   
 end

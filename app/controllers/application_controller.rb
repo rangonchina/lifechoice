@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
        root_path
     elsif resource.is_a?(Admin)
       # 管理者のとき
-       admin_admins_themes_path
+       admin_themes_path
     end
   end
 

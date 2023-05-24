@@ -4,7 +4,7 @@
             <div class="border rounded py-1 px-4 text-center">
                 <%= image_tag "#{@goal.theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
             </div>
-            <div class="border rounded py-3 px-5">
+            <div class="border rounded mt-1 py-3 px-5">
                     <p class="font-weight-500"><%= @goal.user.name %></p>
                     <p><%= @goal.status %></p>
                     <p><%= @goal.body %></p>
@@ -27,23 +27,6 @@
                     </script> 
                 <!--/星評価-->
                 <% end %>
-                <!--いいね機能-->
-                  <div>
-                        <% if @goal.favorited_by?(current_user) %>
-                            <p>
-                               <%= link_to goal_favorites_path(@goal), method: :delete do %>
-                                ♥<%= @goal.favorites.count %> いいね
-                               <% end %>
-                            </p>
-                        <% else %>
-                            <p>
-                               <%= link_to goal_favorites_path(@goal), method: :post do %>
-                                ♡<%= @goal.favorites.count %> いいね
-                               <% end %>
-                            </p>
-                        <% end %>
-                     </div>
-                     <!--いいね機能end-->
             </div>
         </div>
         
@@ -67,28 +50,17 @@
                    
                      
                     <div class = "ml-4">
-                        <% if post_comment.user == current_user %>
-                        <%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %>
-                        <% end %>
+                      <%= link_to "削除", admin_goal_post_comment_path(@goal, post_comment), method: :delete %>
                     </div>
                 </div>
                  <% end %><!--each end-->
              </div><!--コメント機能 end-->
              
-            <div>
-                <%= form_with model: [@goal, @post_comment] do |f| %>
-                 <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに", class: 'w-100' %>
-                 <p class="d-flex justify-content-end"><%= f.submit "送信する" %></p>
-                <% end %>
-            </div>
         </div>
     </div>
     <!--row end -->
-
-
-
-    <div class="py-4">
-        <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
-        <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+    
+    <div class= "mb-3 mt-5">
+        <%= link_to "Life List​",  admin_themes_path, class:"btn btn-outline-secondary" %>
     </div>
 </div>

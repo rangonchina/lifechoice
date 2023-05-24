@@ -19,28 +19,30 @@ Rails.application.routes.draw do
     get "users/themes" => "themes#theme_index"
     get "/goals/new/:theme_id" => "goals#new", as: "goals_new"
     get "/goals/all" => "goals#all_index", as: "goals_all"
-    delete 'goal/:id' => 'goals#destroy', as: 'destroy_goal'
+    #　FIXME 複数形とパス修正する
+    delete '/goals/:id' => 'goals#destroy', as: 'destroy_goal'
     patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :themes, only: [:index]
     resources :goals, only: [:new, :index, :show, :edit, :create]
     resources :users, only: [:show, :edit, :update]
     resources :goals, only: [:new, :create, :index, :show, :destroy] do
-    resources :favorites, only: [:create, :destroy]
-    resources :post_comments, only: [:create, :destroy]
-  end
+      resources :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+    end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
   
    # 管理者側のルーティング設定
    namespace :admin do
    get '/' => 'homes#top'
-   get "admins/themes" => "themes#theme_index"
-   get 'admins/goals/:id' => 'goals#index' ,as: 'goals'
+   get "themes" => "themes#theme_index"
+  # get 'admins/goals/:id' => 'goals#index' ,as: 'goals'
  
   # resources :genres, only: [:index, :create, :edit, :update]
    resources :users, only: [:index]
    resources :themes, only: [:destroy]
-   #resources :goals, only: [:show]
-  # resources :order_details, only: [:update]
+   resources :goals, only: [:index, :show] do
+     resources :post_comments, only: [:destroy]
+   end
  end
 end
