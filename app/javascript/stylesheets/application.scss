@@ -124,3 +124,28 @@ p1 {
   font-weight: bold;
   text-align: center;
 }
+.pc-message{
+  display: block;
+}
+
+.smart-message{
+  display: none;
+}
+@media screen and (max-width: 1500px) {
+    .mainvisual{
+        width:750px;
+        height:750px;
+        margin:auto;
+        margin-top: 5px;
+        background-image: url("../images/top-i.jpg");
+        background-size: cover;
+    }
+    .pc-message{
+      display: none;
+    }
+    
+    .smart-message{
+      display: block;
+    }
+  
+}
