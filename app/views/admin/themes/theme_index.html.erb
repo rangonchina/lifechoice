@@ -1,29 +1,29 @@
 <div class="container textbody-order">
-      <h2 class="my-5">Life List</h2>
+  <h2 class="my-5">Life List</h2>
     
-    <% if admin_signed_in? %>
+     <% if admin_signed_in? %>
     
     <!-- 管理者ユーザー -->
     <div class="row">
-      <% Theme.all.each do |theme| %>
-     <div class="life-list<%= theme.image_id %>">
-        <%=link_to admin_goals_path(theme_id: theme.image_id) do %>
-         <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
+        <% Theme.all.each do |theme| %>
+         <div class="life-list<%= theme.image_id %>">
+            <%=link_to admin_goals_path(theme_id: theme.image_id) do %>
+            <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
         <% end %>
-     </div>
+         </div>
       <% end %>
     </div>
   
     <% else %>
     <!-- 一般ユーザー -->
     <div class="row">
-      <% Theme.all.each do |theme| %>
-     <div class="life-list<%= theme.image_id %>">
-        <%=link_to goals_new_path(theme.image_id) do %>
-       <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
-     <% end %>
-      </div>
-      <% end %>
+        <% Theme.all.each do |theme| %>
+          <div class="life-list<%= theme.image_id %>">
+            <%=link_to goals_new_path(theme.image_id) do %>
+            <%= image_tag "#{theme.image_id}.jpg", size: '275x160',class: "col-xs-3" %>
+            <% end %>
+          </div>
+        <% end %>
     </div>
     <% end %>
-</div>
+</div> 

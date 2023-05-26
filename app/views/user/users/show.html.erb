@@ -2,38 +2,32 @@
   <div class="row mb-5">
     <div class="offset-md-3 col-md-6">
       <h4 class="my-5">My Page​</h4></h4>
-        <table class="table table-bordered table-condensed">
-          
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <td class="form-group">ニックネーム</td>
+                    <td><%= current_user.name %></td>
+                </tr>
+    
+                <tr>
+                    <td class="form-group">メールアドレス</td>
+                    <td><%= current_user.email %></td>
+                </tr>
+                
+                 <tr>
+                    <td class="form-group">性別</td>
+                    <td><%= current_user.gender %></td>
+                </tr>
+                
+                 <tr>
+                    <td class="form-group">年齢</td>
+                    <td><%= current_user.age %></td>
+                </tr>
+            </table>
             
-            <tr>
-                <td class="form-group">ニックネーム</td>
-                <td><%= current_user.name %></td>
-            </tr>
-
-            <tr>
-                <td class="form-group">メールアドレス</td>
-                <td><%= current_user.email %></td>
-            </tr>
-            
-             <tr>
-                <td class="form-group">性別</td>
-                <td><%= current_user.gender %></td>
-            </tr>
-            
-             <tr>
-                <td class="form-group">年齢</td>
-                <td><%= current_user.age %></td>
-            </tr>
-            <!--<p><%#= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>-->
-        </table>
-        
           <strong class="information-link"><%= link_to " 編集する", edit_user_path, class:"btn btn-outline-secondary" %></strong>
           <strong class="information-link"><%= link_to "退会する", withdrawal_path, class:"btn btn-outline-secondary",  method: :patch, data: { confirm: "本当に退会しますか？" } %></strong>
         
-        <strong><%= link_to " My Life Box", goals_path, class:"btn btn-outline-secondary" %></strong>
-        
-        <!--<p>--><!--    <strong><#%= link_to " 一覧を見る", orders_path, class:"btn btn-outline-secondary"%></strong>--><!--</p>-->
-
+          <strong><%= link_to " My Life Box", goals_path, class:"btn btn-outline-secondary" %></strong>
     </div>
   </div>
 </div>
