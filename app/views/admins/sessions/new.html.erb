@@ -1,28 +1,27 @@
 <div class="container">
  <div class="row mb-5">
   <div class="offset-md-3 col-md-6">
-     <h4 class="my-5">管理者ログイン</h4>
+    <h4 class="my-5">管理者ログイン</h4>
 
-<%= form_with model: @admin, url: admin_session_path do |f| %>
-
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br/>
-    <%= f.password_field :password, autocomplete: "パスワード" %>
-  </div><br>
-
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-outline-secondary" %>
-  </div>
-    <% end %>
+       <%= form_with model: @admin, url: admin_session_path do |f| %>
+          <div class="field">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :password %><br/>
+            <%= f.password_field :password, autocomplete: "パスワード" %>
+          </div><br>
+        
+        
+          <div class="actions">
+            <%= f.submit "ログイン", class: "btn btn-outline-secondary" %>
+          </div>
+       <% end %> <!--form_with終了-->
+       
   </div>
  </div>
 </div>
-
 
 <%= render "admins/shared/links" %>
