@@ -1,6 +1,6 @@
 <div class="container textbody-order py-5">
     <div class="row">
-        <div class="col">     
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-6">     
             <div class="border rounded py-1 px-4 text-center">
                 <%= image_tag "#{@goal.theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
             </div>
@@ -30,13 +30,13 @@
             </div>
         </div>
         
-        <div class="col comment-wrapper">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 comment-wrapper">
             <!--コメント機能-->
             <div class="comment-wrapper my-3" style="max-height: calc(100vh - 100px - 136px - 48px - 48px - 90px - 86px - 0px);">
                  <div>
                     <p>コメント件数：<%= @goal.post_comments.count %></p>
                  </div>
-                    <% @goal.post_comments.each do |post_comment| %>
+                    <% @goal.post_comments.order("created_at DESC").each do |post_comment| %>
                 
                     <div class="d-flex align-items-end">
                         <p class="font-weight-500"><%= post_comment.user.name %></p>
