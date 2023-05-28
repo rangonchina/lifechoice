@@ -6,20 +6,18 @@ class User::GoalsController < ApplicationController
     @theme = Theme.find_by(image_id: @theme_id)
   end
   
-  def index 
-    @goals = current_user.goals.order(created_at: :desc)
-    @theme_id = params[:theme_id]
-      # if @goal.rate.nil? then
-      #   @goal.rate=0
-      # end
+  def index
+    @goals = Goal.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(5)
+    if params[:theme_id].present?
+        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+    end
   end
   
   def all_index
-    @goals = Goal.all.order(created_at: :desc)
-    @theme_id = params[:theme_id]
-     # if @goal.rate.nil? then
-      #   @goal.rate=0
-      # end
+    @goals = Goal.order(created_at: :desc).page(params[:page]).per(5)
+    # if params[:theme_id].present?
+        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+    # end
   end
   
   def show
@@ -51,9 +49,6 @@ class User::GoalsController < ApplicationController
   # ストロングパラメータ
   def goal_params
     # params[:goal][:status] = params[:goal][:status].to_i
-    params.require(:goal).permit(:title, :body, :status, :theme_id, :rate)
+    params.require(:goal).permit(:title, :body, :status, :theme_id, :rate, :themes_id, :goals_id)
   end
-    
-    
-    
 end

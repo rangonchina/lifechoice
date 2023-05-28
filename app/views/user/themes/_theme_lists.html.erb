@@ -1,0 +1,17 @@
+<%#= 左ペイン %>
+<ul class="list-unstyled" style="line-height: 3;">
+  <% Theme.all.each do |theme| %>
+    <li>
+      <% if mode == 'my_life_box' %>
+        <%= link_to goals_path(theme_id: theme.image_id) do %>
+          <%= theme.name %>
+        <% end %>
+      <% else %>
+        <%= link_to goals_all_path(theme_id: theme.image_id) do %>
+          <%= theme.name %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
