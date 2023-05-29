@@ -7,14 +7,14 @@ class User::GoalsController < ApplicationController
   end
   
   def index
-    @goals = Goal.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(5)
+    @goals = Goal.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(9)
     if params[:theme_id].present?
         @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     end
   end
   
   def all_index
-    @goals = Goal.order(created_at: :desc).page(params[:page]).per(5)
+    @goals = Goal.order(created_at: :desc).page(params[:page]).per(9)
     # if params[:theme_id].present?
         @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     # end
