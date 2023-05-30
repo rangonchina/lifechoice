@@ -5,6 +5,15 @@
   <div class="row">
     <div class="col-md-3">
       <%= render partial: 'user/themes/theme_lists', locals: {mode: 'life_echo_box'} %>
+      <% if request.fullpath.include? "theme_id" %>
+       <span class="font-weight-bold ">【5段階評価】</span>
+        <%= link_to request.fullpath + "&rate=5" do %><p class="lightgray_link mb-0">★★★★★</p><% end %>
+        <%= link_to request.fullpath + "&rate=4" do %><p class="lightgray_link mb-0">★★★★☆</p><% end %>
+        <%= link_to request.fullpath + "&rate=3" do %><p class="lightgray_link mb-0">★★★☆☆</p><% end %>
+        <%= link_to request.fullpath + "&rate=2" do %><p class="lightgray_link mb-0">★★☆☆☆</p><% end %>
+        <%= link_to request.fullpath + "&rate=1" do %><p class="lightgray_link mb-0">★☆☆☆☆</p><% end %>
+        <%= link_to request.fullpath + "&rate=0" do %><p class="lightgray_link mb-0">☆☆☆☆☆</p><% end %>
+      <% end %>
       <div class= "mb-3">
         <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
         <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
@@ -89,12 +98,5 @@
    </div>
   </main>
 </div>
-  <% if request.fullpath.include? "theme_id" %>
-    <%= link_to request.fullpath + "&rate=5" do %><p>★★★★★</p><% end %>
-    <%= link_to request.fullpath + "&rate=4" do %><p>★★★★☆</p><% end %>
-    <%= link_to request.fullpath + "&rate=3" do %><p>★★★☆☆</p><% end %>
-    <%= link_to request.fullpath + "&rate=2" do %><p>★★☆☆☆</p><% end %>
-    <%= link_to request.fullpath + "&rate=1" do %><p>★☆☆☆☆</p><% end %>
-    <%= link_to request.fullpath + "&rate=0" do %><p>☆☆☆☆☆</p><% end %>
-  <% end %>
+  
   <%= paginate(@goals) %>
