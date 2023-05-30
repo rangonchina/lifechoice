@@ -23,11 +23,14 @@ Rails.application.routes.draw do
     delete '/goals/:id' => 'goals#destroy', as: 'destroy_goal'
     patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     resources :themes, only: [:index]
-    resources :goals, only: [:new, :index, :show, :edit, :create]
+    resources :goals, only: [:new, :index, :show,  :create]
     resources :users, only: [:show, :edit, :update]
-    resources :goals, only: [:new, :create, :index, :show, :destroy] do
+    resources :goals, only: [:new, :create, :index, :show, :edit, :destroy] do
       resources :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
+      collection do
+        get 'rate/:rate' => 'goals#rate', as: 'rate'
+      end
     end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end

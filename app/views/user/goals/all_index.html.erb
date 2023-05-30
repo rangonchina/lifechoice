@@ -38,7 +38,7 @@
                                 starOff:  '<%= asset_path('star-off.png') %>',
                                 starOn : '<%= asset_path('star-on.png') %>',
                                 readOnly: true,
-                                score: <%= goal.rate %>,
+                                score: <%= goal.rate ||= 0 %>,
                               }
                               elem.innerHTML = "";
                               raty(elem, opt);
@@ -58,7 +58,6 @@
         <%# end %>
         <% end %>
      </div>
-     
     </div>
   </div>
  
@@ -86,9 +85,16 @@
  <!--   </div>-->
  <!-- </div>-->
  <!--</div>-->
-
+   
+   </div>
+  </main>
 </div>
-</main>
-</div>
-
+  <% if request.fullpath.include? "theme_id" %>
+    <%= link_to request.fullpath + "&rate=5" do %><p>★★★★★</p><% end %>
+    <%= link_to request.fullpath + "&rate=4" do %><p>★★★★☆</p><% end %>
+    <%= link_to request.fullpath + "&rate=3" do %><p>★★★☆☆</p><% end %>
+    <%= link_to request.fullpath + "&rate=2" do %><p>★★☆☆☆</p><% end %>
+    <%= link_to request.fullpath + "&rate=1" do %><p>★☆☆☆☆</p><% end %>
+    <%= link_to request.fullpath + "&rate=0" do %><p>☆☆☆☆☆</p><% end %>
+  <% end %>
   <%= paginate(@goals) %>

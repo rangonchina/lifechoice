@@ -3,11 +3,11 @@
   <% Theme.all.each do |theme| %>
     <li>
       <% if mode == 'my_life_box' %>
-        <%= link_to goals_path(theme_id: theme.image_id), class: 'link-light' do %>
+        <%= link_to goals_path(theme_id: theme.image_id), class: "lightgray_link" do %>
           <%= theme.name %>
         <% end %>
       <% else %>
-        <%= link_to goals_all_path(theme_id: theme.image_id), class: 'link-light' do %>
+        <%= link_to goals_all_path(theme_id: theme.image_id), class: "lightgray_link" do %>
           <%= theme.name %>
         <% end %>
       <% end %>

@@ -9,14 +9,15 @@ class User::GoalsController < ApplicationController
   def index
     @goals = Goal.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(9)
     if params[:theme_id].present?
-        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+       @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     end
   end
   
   def all_index
     @goals = Goal.order(created_at: :desc).page(params[:page]).per(9)
     # if params[:theme_id].present?
-        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+    @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+    @goals = @goals.where(rate: params[:rate]) if params[:rate].present?
     # end
   end
   
@@ -43,6 +44,12 @@ class User::GoalsController < ApplicationController
      @goal = Goal.find(params[:id])  # データ（レコード）を1件取得
      @goal.destroy  # データ（レコード）を削除
      redirect_to goals_path  # 投稿一覧画面へリダイレクト  
+  end
+  
+  def rate
+      @goals = Goal.order(created_at: :desc).page(params[:page]).per(9)
+      @goals = @goals.where(rate: params[:rate]) 
+      render :all_index
   end
     
   private
