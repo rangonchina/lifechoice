@@ -9,59 +9,9 @@
         <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
       </div>
     </div>
-    <div class="col-md-9">
-      
-      <div class="row text-center">
-        <% @goals.each do |goal| %> 
-        <%#=link_to goal_path(current_user)(1) do %>
-          <div class="col-md-4 col-sm-6">
-            <%= link_to goal_path(goal.id) do %>
-            <div class= "card mb-4 shadow-sm">
-               
-              <div class="card-header bg-white">
-               <%= image_tag "#{goal.theme_id}_new.jpg", class: "img-fluid" %>
-              </div>
-             
-              <div class="card-body textbody-color">
-                 <p><%= goal.user.name %></p>
-                  <div class="card-title pricing-card-title">
-                    <h4><%= goal.status %></h4>
-                    <p><%= goal.body %></p>
-                    <% if goal.status == 'すでに達成した' %>
-                     <!--星評価-->
-                            <div id="star-rate-<%= goal.id %>"></div>
-                              <script>
-                              var elem = document.getElementById('star-rate-<%= goal.id %>');
-                              var opt = {
-                                size: 30,
-                                starOff:  '<%= asset_path('star-off.png') %>',
-                                starOn : '<%= asset_path('star-on.png') %>',
-                                readOnly: true,
-                                score: <%= goal.rate ||= 0 %>,
-                              }
-                              elem.innerHTML = "";
-                              raty(elem, opt);
-                      
-                              </script> 
-                       <!--/星評価end-->
-                       <% end %>
-                  </div>
-                  <% if goal.user == current_user %>
-                  <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                  <% end %>
-              </div>
-               <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
-            </div>
-            <% end %>
-          </div>
-        <%# end %>
-        <% end %>
-        </div>
-    </div>
+     <!--部分テンプレート-->
+      <%= render 'list', goals: @goals, p_index: @p_index %>
+     <!--部分テンプレートend-->
    </div>
   </div>
   <%= paginate(@goals) %>
-  
-  
-
- 

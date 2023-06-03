@@ -11,6 +11,7 @@ class User::GoalsController < ApplicationController
     if params[:theme_id].present?
        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     end
+    @p_index = true
   end
   
   def all_index
@@ -18,6 +19,7 @@ class User::GoalsController < ApplicationController
     # if params[:theme_id].present?
     @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     @goals = @goals.where(rate: params[:rate]) if params[:rate].present?
+    @p_index = false
     # end
   end
   
