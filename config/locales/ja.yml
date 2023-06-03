@@ -90,7 +90,7 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
-      not_saved: 保存できませんでした
+      
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
