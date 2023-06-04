@@ -1,52 +1,50 @@
 <div class="container-fluid textbody-order">
 
   <h2 class="my-5">Life Echo Box</h2>
-  
+
   <div class="row">
     <div class="col-md-3">
       <%= render partial: 'user/themes/theme_lists', locals: {mode: 'life_echo_box'} %>
       <% if request.fullpath.include? "theme_id" %>
-       <span class="font-weight-bold ">【5段階評価】</span>
-        <%= link_to request.fullpath + "&rate=5" do %><p class="lightgray_link mb-0">★★★★★</p><% end %>
-        <%= link_to request.fullpath + "&rate=4" do %><p class="lightgray_link mb-0">★★★★☆</p><% end %>
-        <%= link_to request.fullpath + "&rate=3" do %><p class="lightgray_link mb-0">★★★☆☆</p><% end %>
-        <%= link_to request.fullpath + "&rate=2" do %><p class="lightgray_link mb-0">★★☆☆☆</p><% end %>
-        <%= link_to request.fullpath + "&rate=1" do %><p class="lightgray_link mb-0">★☆☆☆☆</p><% end %>
-        <%= link_to request.fullpath + "&rate=0" do %><p class="lightgray_link mb-0">☆☆☆☆☆</p><% end %>
+      <span class="font-weight-bold ">【5段階評価】</span>
+      <%= link_to request.fullpath + "&rate=5" do %><p class="lightgray_link mb-0">★★★★★</p><% end %>
+      <%= link_to request.fullpath + "&rate=4" do %><p class="lightgray_link mb-0">★★★★☆</p><% end %>
+      <%= link_to request.fullpath + "&rate=3" do %><p class="lightgray_link mb-0">★★★☆☆</p><% end %>
+      <%= link_to request.fullpath + "&rate=2" do %><p class="lightgray_link mb-0">★★☆☆☆</p><% end %>
+      <%= link_to request.fullpath + "&rate=1" do %><p class="lightgray_link mb-0">★☆☆☆☆</p><% end %>
+      <%= link_to request.fullpath + "&rate=0" do %><p class="lightgray_link mb-0">☆☆☆☆☆</p><% end %>
       <% end %>
-      <div class= "mb-3">
+      <div class="mb-3">
         <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
         <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
       </div>
     </div>
+    
     <!--部分テンプレート-->
     <%= render 'list', goals: @goals, p_index: @p_index %>
     <!--部分テンプレートend-->
+    
   </div>
- <!-- <div class="row">-->
- <!--   <div class="col-xs-2">-->
- <!-- <main class="d-flex flex-nowrap">-->
- <!--  <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">-->
- <!--   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">-->
- <!--     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>-->
- <!--     <span class="fs-4">サイドバー</span>-->
- <!--   </a>-->
- <!--   <hr>-->
- <!--   <ul class="nav nav-pills flex-column mb-auto">-->
- <!--     <% Theme.all.each do |theme| %>-->
- <!--       <li class="nav-item">-->
- <!--         <%= link_to goals_all_path(theme_id: theme.image_id), class: "nav-link" do %>-->
- <!--           <%= theme.name %>-->
- <!--         <% end %>-->
- <!--       </li>-->
- <!--     <% end %>-->
- <!--   </ul>-->
- <!--   </div>-->
- <!-- </div>-->
- <!--</div>-->
-   
-   </div>
-  </main>
-</div>
-  
-  <%= paginate(@goals) %>
+  <!-- <div class="row">-->
+  <!--  <div class="col-xs-2">-->
+  <!--    <main class="d-flex flex-nowrap">-->
+  <!--    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">-->
+  <!--    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">-->
+  <!--    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>-->
+  <!--    <span class="fs-4">サイドバー</span>-->
+  <!--    </a>-->
+  <!--    <hr>-->
+  <!--    <ul class="nav nav-pills flex-column mb-auto">-->
+  <!--      <% Theme.all.each do |theme| %>-->
+      <!--    <li class="nav-item">-->
+      <!--      <%= link_to goals_all_path(theme_id: theme.image_id), class: "nav-link" do %>-->
+      <!--      <%= theme.name %>-->
+      <!--      <% end %>-->
+      <!--    </li>-->
+  <!--      <% end %>-->
+  <!--   </ul>-->
+  <!--    </main>-->
+  <!--  </div>-->
+  <!-- </div>-->
+
+<%= paginate(@goals) %>
