@@ -180,3 +180,35 @@ p1 {
 .pagination>li>a:hover {        
   border-radius: 90px;    /*角を丸くする*/
 }
+
+.notifications {
+  animation-name: smooth-fadein-out;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  opacity: 0;
+  z-index: 10;
+  position: fixed;
+  top: 120px;
+  right: 10px;
+  color: $white;
+  font-size: 13px;
+  text-align: center;
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 0 auto;
+  pointer-events: none;
+  .notice {
+    background-color: #F8A7A7;
+  }
+  .alert {
+    background-color: #a6a6a6;
+  }
+}
+@keyframes smooth-fadein-out {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}

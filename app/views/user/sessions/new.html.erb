@@ -2,8 +2,9 @@
   <div class="row mb-5">
     <div class="offset-md-3 col-md-6">
       <h2 class="my-4">Log in</h2>
-       <%= form_with model: @user, url: new_user_session_path do |f| %>
-
+       <%= form_with model: @user, url: new_user_session_path do |f| %> 
+       <%= render "user/shared/error_messages", resource: resource %>
+       
       <div class="form-group">
         <%= f.label :email %><br>
         <%= f.text_field :email %>

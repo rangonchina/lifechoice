@@ -5,7 +5,7 @@ class User::UsersController < ApplicationController
         
     end
     
-       # 登録情報編集へのアクション
+    # 登録情報編集へのアクション
     def edit
         @user = current_user
     end
