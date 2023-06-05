@@ -34,11 +34,11 @@
             <% end %>
           </div>
           <% if goal.user == current_user %>
-          <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+           <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
           <% end %>
         </div>
         <% if p_index == true %>
-        <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
+         <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
         <% end %>
       </div>
       <% end %>

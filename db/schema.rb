@@ -32,8 +32,7 @@ ActiveRecord::Schema.define(version: 2023_05_28_053050) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "goals_id"
-    t.integer "themes_id"
+    t.integer "goal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
