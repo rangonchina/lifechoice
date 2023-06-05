@@ -1,90 +1,92 @@
 <div class="container textbody-order py-5">
-    <div class="row">
-        <div class="col col-12 col-sm-12 col-md-12 col-lg-6">     
-            <div class="border rounded py-1 px-4 text-center">
-                <%= image_tag "#{@goal.theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
-            </div>
-                <div class="border rounded py-3 px-5">
-                        <p class="font-weight-500"><%= @goal.user.name %></p>
-                        <p><%= @goal.status %></p>
-                        <p><%= @goal.body %></p>
-                        <% if @goal.status == 'すでに達成した' %>
-                        <%= @goal.rate %>
-                        
-                    <!--星評価-->
-                     <div id="star-rate-<%= @goal.id %>"></div>
-                        <script>
-                             var elem = document.getElementById('star-rate-<%= @goal.id %>');
-                             var opt = {
-                             size: 30,
-                             starOff:  '<%= asset_path('star-off.png') %>',
-                             starOn : '<%= asset_path('star-on.png') %>',
-                            readOnly: true,
-                             score: <%= @goal.rate ||= 0 %>,
-                            }
-                            elem.innerHTML = "";
-                            raty(elem, opt);
-                        </script> 
-                    <!--/星評価-->
-                    <% end %>
-                    <!--いいね機能-->
-                      <div>
-                            <% if @goal.favorited_by?(current_user) %>
-                                <p>
-                                   <%= link_to goal_favorite_path(@goal), method: :delete do %>
-                                    ♥<%= @goal.favorites.count %> いいね
-                                   <% end %>
-                                </p>
-                            <% else %>
-                                <p>
-                                   <%= link_to goal_favorites_path(@goal), method: :post do %>
-                                    ♡<%= @goal.favorites.count %> いいね
-                                   <% end %>
-                                </p>
-                            <% end %>
-                         </div>
-                         <!--いいね機能end-->
-                </div>
-        </div>
-        
-        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 comment-wrapper">
-            <!--コメント機能-->
-            <div class="comment-wrapper my-3" style="max-height: calc(100vh - 100px - 136px - 48px - 48px - 90px - 86px - 0px);">
-                 <div>
-                    <p>コメント件数：<%= @goal.post_comments.count %></p>
-                 </div>
-                    <% @goal.post_comments.order("created_at DESC").each do |post_comment| %>
-                    
-                        <div class="d-flex align-items-end">
-                            <p class="font-weight-500"><%= post_comment.user.name %></p>
-                            <p class = "ml-4 text-small"><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
-                        </div>
-                        <div>
-                            <%= post_comment.comment %>
-                        </div>
-                   
-                       <div class = "d-flex">
-                        <div class = "ml-4">
-                            <% if post_comment.user == current_user %>
-                            <%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %>
-                            <% end %>
-                        </div>
-                       </div>
-                    <% end %><!--each end-->
-             </div><!--コメント機能 end-->
-             
-            <div>
-                <%= form_with model: [@goal, @post_comment] do |f| %>
-                 <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに", class: 'w-100' %>
-                 <p class="d-flex justify-content-end"><%= f.submit "送信する" %></p>
-                <% end %>
-            </div>
-        </div>
-    </div>
-    <!--row end -->
+  <div class="row">
+    <div class="col col-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="border rounded py-1 px-4 text-center">
+        <%= image_tag "#{@goal.theme_id}_new.jpg", size: '275x100',class: "col-xs-3" %>
+      </div>
+      <div class="border rounded py-3 px-5">
+        <p class="font-weight-500"><%= @goal.user.name %></p>
+        <p><%= @goal.status %></p>
+        <p><%= @goal.body %></p>
+        <% if @goal.status == 'すでに達成した' %>
+        <%= @goal.rate %>
 
-     <div class="py-4">
-        <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
-        <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+        <!--星評価-->
+        <div id="star-rate-<%= @goal.id %>"></div>
+        <script>
+          var elem = document.getElementById('star-rate-<%= @goal.id %>');
+          var opt = {
+            size: 30,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            score: < %= @goal.rate || = 0 % > ,
+          }
+          elem.innerHTML = "";
+          raty(elem, opt);
+        </script>
+        <!--/星評価-->
+        <% end %>
+        <!--いいね機能-->
+        <div>
+          <% if @goal.favorited_by?(current_user) %>
+          <p>
+            <%= link_to goal_favorite_path(@goal), method: :delete do %>
+            ♥<%= @goal.favorites.count %> いいね
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to goal_favorites_path(@goal), method: :post do %>
+            ♡<%= @goal.favorites.count %> いいね
+            <% end %>
+          </p>
+          <% end %>
+        </div>
+        <!--いいね機能end-->
+      </div>
     </div>
+
+    <div class="col col-12 col-sm-12 col-md-12 col-lg-6 comment-wrapper">
+      <!--コメント機能-->
+      <div class="comment-wrapper my-3" style="max-height: calc(100vh - 100px - 136px - 48px - 48px - 90px - 86px - 0px);">
+        <div>
+          <p>コメント件数：<%= @goal.post_comments.count %></p>
+        </div>
+        <% @goal.post_comments.order("created_at DESC").each do |post_comment| %>
+
+        <div class="d-flex align-items-end">
+          <p class="font-weight-500"><%= post_comment.user.name %></p>
+          <p class="ml-4 text-small"><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
+        </div>
+        <div>
+          <%= post_comment.comment %>
+        </div>
+
+        <div class="d-flex">
+          <div class="ml-4">
+            <% if post_comment.user == current_user %>
+            <%= link_to "削除", goal_post_comment_path(post_comment.goal, post_comment), method: :delete %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+        <!--each end-->
+      </div>
+      <!--コメント機能 end-->
+
+      <div>
+        <%= form_with model: [@goal, @post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに", class: 'w-100' %>
+        <p class="d-flex justify-content-end"><%= f.submit "送信する" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--row end -->
+
+  <div class="py-4">
+    <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
+    <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+  </div>
 </div>
