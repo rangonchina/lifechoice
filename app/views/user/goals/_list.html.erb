@@ -25,7 +25,7 @@
                 starOff: '<%= asset_path('star-off.png') %>',
                 starOn: '<%= asset_path('star-on.png') %>',
                 readOnly: true,
-                score: < %= goal.rate || = 0 % > ,
+                score: <%= goal.rate ||= 0 %> ,
               }
               elem.innerHTML = "";
               raty(elem, opt);

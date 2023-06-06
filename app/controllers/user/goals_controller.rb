@@ -19,6 +19,7 @@ class User::GoalsController < ApplicationController
     # if params[:theme_id].present?
     @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     @goals = @goals.where(rate: params[:rate]) if params[:rate].present?
+    @goals = Goal.looks(params[:word]).page(params[:page]).per(9) if params[:word].present?
     @p_index = false
     # end
   end

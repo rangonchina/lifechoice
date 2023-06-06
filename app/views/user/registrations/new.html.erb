@@ -43,12 +43,10 @@
           <%= f.submit "Sign up", class: "btn btn-secondary mt-4 px-5" %>
         </div>
       <% end %>
-      <div class="row">
-      <div class="col-xs-5">
-      <br><strong>すでに登録済みの方はこちらから <br>
-      <%= render "user/shared/links" %> を行ってください。</strong>
-      </div>
-      </div>
+        <br>
+        <br>
+        <strong>すでに登録済みの方はこちらから</strong>
+        <strong><%= link_to "Log in",  new_user_session_path, class: "link-secondary" %>を行ってください。</strong>
     </div>
   </div>
 </div>

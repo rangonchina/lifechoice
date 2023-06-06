@@ -11,4 +11,10 @@ class Goal < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
   
+  # 検索方法分岐
+  def self.looks(word)
+    Goal.where("body LIKE?","%#{word}%")
+  end
+
+  
 end
