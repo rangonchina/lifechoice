@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get "users/themes" => "themes#theme_index"
     get "/goals/new/:theme_id" => "goals#new", as: "goals_new"
     get "/goals/all" => "goals#all_index", as: "goals_all"
+    get "search" => "searches#search"
     #　FIXME 複数形とパス修正する
     delete '/goals/:id' => 'goals#destroy', as: 'destroy_goal'
     patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'

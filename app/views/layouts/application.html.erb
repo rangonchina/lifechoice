@@ -23,6 +23,16 @@
           <a class="navbar-brand p-1" href="/"><%= image_tag('logo.png',size: "170x75") %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <!--検索機能-->
+            <% if user_signed_in? %>
+              <div class="search_form">
+                <%= form_with url: search_path, local: true, method: :get do |f| %>
+                  <%= f.text_field :word %>
+                  <%= f.submit "検索", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            <% end %><!--検索機能END-->
+            
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
