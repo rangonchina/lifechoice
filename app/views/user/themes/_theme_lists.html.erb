@@ -1,16 +1,40 @@
 <%#= 左ペイン %>
 <ul class="list-unstyled" style="line-height: 3;">
-  <% Theme.all.each do |theme| %>
-    <li>
-      <% if mode == 'my_life_box' %>
-        <%= link_to goals_path(theme_id: theme.image_id), class: "lightgray_link" do %>
+  <% if @theme %>
+    
+        <% if mode == 'my_life_box' %>
+          <li>
+            <%= link_to goals_path(theme_id: @theme.image_id), class: "lightgray_link" do %>
+            <%= @theme.name %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "Lifeを選択",goals_path, class: "btn-handwriting" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to goals_all_path(theme_id: @theme.image_id), class: "lightgray_link" do %>
+            <%= @theme.name %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "Lifeを選択",goals_all_path, class: "btn-handwriting" %>
+          </li>
+    <% end %>
+    <% else %>
+    <a class="heading-031">Lifeを選択してください</a>
+    <% Theme.all.each do |theme| %>
+      <li>
+        <% if mode == 'my_life_box' %>
+          <%= link_to goals_path(theme_id: theme.image_id), class: "lightgray_link" do %>
           <%= theme.name %>
-        <% end %>
+          <% end %>
       <% else %>
-        <%= link_to goals_all_path(theme_id: theme.image_id), class: "lightgray_link" do %>
+          <%= link_to goals_all_path(theme_id: theme.image_id), class: "lightgray_link" do %>
           <%= theme.name %>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   <% end %>
 </ul>

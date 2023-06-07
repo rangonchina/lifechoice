@@ -9,6 +9,7 @@ class User::GoalsController < ApplicationController
   def index
     @goals = Goal.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(9)
     if params[:theme_id].present?
+       @theme = Theme.find(params[:theme_id])
        @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     end
     @p_index = true
@@ -20,6 +21,13 @@ class User::GoalsController < ApplicationController
     @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
     @goals = @goals.where(rate: params[:rate]) if params[:rate].present?
     @goals = Goal.looks(params[:word]).page(params[:page]).per(9) if params[:word].present?
+    if params[:theme_id].present?
+       @theme = Theme.find(params[:theme_id])
+       @goals = @goals.where(theme_id: params[:theme_id]) if params[:theme_id].present?
+       if params[:rate].present? 
+          @rate = params[:rate]
+       end
+    end
     @p_index = false
     # end
   end
