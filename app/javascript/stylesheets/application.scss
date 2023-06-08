@@ -283,8 +283,6 @@ p1 {
     content: '';
 }
 /***評価サイドバー機能見出し***/
-
-/* ここから下がボタンのCSS　*/
 .btn-handwriting {
   display: inline-block;
   text-decoration: none;
@@ -332,3 +330,55 @@ p1 {
 .btn-handwriting:after {
   left: 3px;
 }
+/* 評価サイドバー機能見出しEND　*/
+
+/* OmniAuth Facebook*/
+.facebook {
+  background-color: #2e4a88;
+  box-shadow: 0 4px 0 #1B3D82;
+  text-shadow: 0 -1px -1px #1B3D82;
+  
+  display: inline;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+}
+.facebook:hover {
+  background-color: #354F84;
+}
+.facebook:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #1B3D82;
+}
+/* OmniAuth Facebook　ｅｎｄ*/
+
+/* OmniAuth Twitter*/
+.twitter {
+  background-color: #008DDE;
+  box-shadow: 0 4px 0 #0078BD;
+  
+  display: inline;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+}
+.twitter:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #0078BD;
+}
+.twitter:hover {
+  background-color: #1397D8;
+}
+/* OmniAuth Twitter　ｅｎｄ*/

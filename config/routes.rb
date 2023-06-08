@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 # URL /customers/sign_in ...
   devise_for :users, path: :user, controllers: {
   registrations: "user/registrations",
-  sessions: 'user/sessions'
+  sessions: 'user/sessions',
+  passwords: "user/passwords",
+  omniauth_callbacks: "user/omniauth_callbacks" 
 }
 
 # 管理者用

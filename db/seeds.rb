@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#Admin.create!(email: "admin@1", password: "123456",password_confirmation: "123456")
+Admin.create!(email: "admin@1", password: "123456",password_confirmation: "123456")
 
 Theme.create!([
     {name: "本当にやりたいことを見つける", image_id: 1},
