@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User::SessionsController < Devise::SessionsController
-  puts "作成したキー #{ENV['SECRET_KEY']}"
   before_action :user_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 

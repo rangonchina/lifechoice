@@ -31,8 +31,8 @@ Rails.application.routes.draw do
     resources :goals, only: [:new, :create, :index, :show, :edit, :destroy] do
       resources :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
-      collection do
-        get 'rate/:rate' => 'goals#rate', as: 'rate'
+    collection do
+      get 'rate/:rate' => 'goals#rate', as: 'rate'
       end
     end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

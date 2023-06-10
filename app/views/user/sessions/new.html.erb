@@ -26,14 +26,13 @@
         <%= f.submit "Log in" %>
       </div>
       <% end %>
-        <!--Omniauth-->
-        <div class="container smart-message">
-          <div class="col text-center mb-5">
-            <%= link_to "Facebook", user_facebook_omniauth_authorize_path, method: :post, class: "facebook" %>
-            <%= link_to "Twitter", user_twitter_omniauth_authorize_path, method: :post, class: "twitter" %>
-          </div>
-        </div>
-        <!--OmniauthEND-->
+      <!--Omniauth-->
+       <div class="mt-5 mb-3">
+          <p class="text-decoration-underline">ソーシャルアカウントでログイン</p>
+          <%#= link_to "Facebook", user_facebook_omniauth_authorize_path, method: :post, class: "facebook" %>
+          <%= link_to "Twitter", user_twitter_omniauth_authorize_path, method: :post, class: "twitter" %>
+        </div> 
+      <!--OmniauthEND-->
       　<br>
         <br>
         <p>まだ登録がお済みでない方はこちらから</p>
