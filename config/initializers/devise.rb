@@ -313,11 +313,11 @@ Devise.setup do |config|
   
    # API key
   if Rails.env.production?     
-    config.omniauth :facebook, "958228032162844", "5a1dccbd904a1868813fb90921cc2f06"
-    config.omniauth :twitter,  "YfeTsW7OCkzMC2LvsrmQHP5CL", "G68gDpPqGPoI77VxFXrRUL49agczH4JCZFbuA35CPPAJgj51Fh"
+    config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET_KEY"]
+    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET_KEY"]
   else
-    config.omniauth :facebook, "958228032162844", "5a1dccbd904a1868813fb90921cc2f06", scope: 'email', info_fields: 'email,name'
-    config.omniauth :twitter,  "YfeTsW7OCkzMC2LvsrmQHP5CL", "G68gDpPqGPoI77VxFXrRUL49agczH4JCZFbuA35CPPAJgj51Fh"
+    config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET_KEY"], scope: 'email', info_fields: 'email,name'
+    config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET_KEY"]
   end
   
-end
+end 
