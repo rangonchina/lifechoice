@@ -28,7 +28,7 @@ body{
     height:700px;
     margin:auto;
     margin-top: 5px;
-    background-image: image-url("../images/top.jpg");
+    background-image: url("../images/top.jpg");
     background-size: cover;
 }
 
@@ -155,7 +155,7 @@ p1 {
         height:400px;
         margin:auto;
         margin-top: 5px;
-        background-image: image-url("../images/top-i.jpg");
+        background-image: url("../images/top-i.jpg");
         background-size: cover;
         background-position: 50% 25%;
     }
