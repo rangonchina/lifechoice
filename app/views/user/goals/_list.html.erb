@@ -14,12 +14,12 @@
 
         <div class="card-body textbody-color">
           <p><%= goal.user.name %></p>
-          <p><%= goal.user.gender %></p>
-          <p><%= goal.user.age %>歳</p> 
-          <div class="card-title pricing-card-title">
+          <p><%= goal.user.gender %>   |   <%= goal.user.age %>歳</p>
+          <div class="card-title" style= "height: 120px;">
             <h4><%= goal.status %></h4>
-            <p><%= goal.body %></p>
+            <div class="pricing-card-title"><%= goal.body %></div>
             <% if goal.status == 'すでに達成した' %>
+            
             <!--星評価-->
             <div id="star-rate-<%= goal.id %>" class="star-rate"></div>
             <script>
