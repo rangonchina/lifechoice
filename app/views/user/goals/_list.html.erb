@@ -13,7 +13,12 @@
         </div>
 
         <div class="card-body textbody-color">
-          <p><%= goal.user.name %></p>
+          <div>
+           <%= goal.user.name%>
+           <% if goal.user == current_user %>
+            <%= link_to "削除", destroy_goal_path(goal.id), class:"ml-5 btn btn-outline-secondary btn-sm",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+           <% end %>
+          </div>
           <p><%= goal.user.gender %>   |   <%= goal.user.age %>歳</p>
           <div class="card-title" style= "height: 120px;">
             <h4><%= goal.status %></h4>
@@ -37,9 +42,6 @@
             <!--/星評価end-->
             <% end %>
           </div>
-          <% if goal.user == current_user %>
-           <%= link_to "削除", destroy_goal_path(goal.id), class:"btn btn-outline-secondary",method: :delete, "data-confirm" => "本当に削除しますか？" %>
-          <% end %>
         </div>
         <% if p_index == true %>
          <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
