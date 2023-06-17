@@ -382,3 +382,43 @@ p1 {
   background-color: #1397D8;
 }
 /* OmniAuth Twitter　ｅｎｄ*/
+
+@media (max-width: 768px) {
+  .custom_row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .custom_col_8 {
+    max-width: 66.6666666667%;
+  }
+  .custom_col_4 {
+    max-width: 33.3333333333%;
+  }
+  .search_form {
+    width: 100%;
+    min-width: 100%;
+  }
+  .search_form_form {
+    width: 100%;
+    display: inline-flex;
+  }
+  .search_text {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .search_button {
+    width: 100%;
+  }
+  .toggle_menu_button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .star-rate img {
+    width: 40px;
+  }
+  
+}
