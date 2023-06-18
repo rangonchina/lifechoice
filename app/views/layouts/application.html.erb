@@ -11,12 +11,6 @@
   </head>
 
    <body class="d-flex flex-column vh-100">
-      <div class="notifications">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: key) %>
-        <% end %>
-      </div>
-  
     <header class="sticky-top bg-white shadow-sm">
       <nav class="navbar navbar-expand-xl navbar-light">
         <div class="container-fluid">
@@ -92,6 +86,20 @@
       </nav>
       <a href="#" id="page-top">TOP</a>
     </header>
+ 
+    <script>
+      // ウインドウが、ロードまたはリサイズされた時
+      $(window).on('load resize', function(){
+        // ヘッダーの高さに20pxを計上した場所に.notificationsを表示させるためcssを動的に変更する
+        $('.notifications').css('top', $('header').outerHeight() + 20 + 'px')
+      });
+    </script>
+ 
+    <div class="notifications">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key) %>
+      <% end %>
+    </div>
  
     <main class="mb-auto">
     <%= yield %>
