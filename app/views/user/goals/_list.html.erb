@@ -15,14 +15,14 @@
         <div class="card-body textbody-color">
           <div>
            <%= goal.user.name%>
-           <% if goal.user == current_user %>
-            <%= link_to "削除", destroy_goal_path(goal.id), class:"ml-5 btn btn-outline-secondary btn-sm",method: :delete, "data-confirm" => "本当に削除しますか？" %>
-           <% end %>
+           <%# if goal.user == current_user %>
+            <%#= link_to "削除", destroy_goal_path(goal.id), class:"ml-5 btn btn-outline-secondary btn-sm",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+           <%# end %>
           </div>
           <p><%= goal.user.gender %>   |   <%= goal.user.age %>歳</p>
           <div class="card-title" style= "height: 120px;">
             <h4><%= goal.status %></h4>
-            <div class="pricing-card-title"><%= goal.body %></div>
+            <div class="pricing-card-title" title="<%= goal.body %>"><%= goal.body %></div>
             <% if goal.status == 'すでに達成した' %>
             
             <!--星評価-->
@@ -46,6 +46,16 @@
         <% if p_index == true %>
          <p><%= link_to "#{goal.post_comments.count} コメント", goal_path(goal.id) %></p>
         <% end %>
+        <div class="card-footer text-right">
+          <% if goal.user == current_user %>
+            <%= link_to destroy_goal_path(goal.id), class: 'text-black-50', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+            <i class="far fa-trash-alt mr-3"></i>
+            <% end %>
+           <% end %>
+          <small class="text-black-50">
+            <%= goal.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %>
+          </small>
+        </div>
       </div>
       <% end %>
     </div>

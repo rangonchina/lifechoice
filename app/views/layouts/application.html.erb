@@ -18,18 +18,18 @@
       </div>
   
     <header class="sticky-top bg-white shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-xl navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand p-1" href="/"><%= image_tag('logo.png',size: "170x75") %></a>
             <!--検索機能-->
-              <div class="custom_row search_form">
+              <div class="d-flex justify-content-center mb-3 mb-xl-0 search-box">
               <% if user_signed_in? %>
-                  <%= form_with url: goals_all_path, local: true, method: :get, class: "search_form_form" do |f| %>
-                  <div class="custom_col_8">
-                    <%= f.text_field :word, class: "search_text" %>
-                  </div>
-                  <div class="custom_col_4">
-                    <%= f.submit "検索", class: "btn btn-light search_button" %>
+                  <%= form_with url: goals_all_path, local: true, method: :get, class: "m-0 p-0" do |f| %>
+                  <div class="input-group">
+                    <%= f.text_field :word, class: "form-control" %>
+                    <div class="input-group-append">
+                      <%= f.submit "検索", class: "btn btn-light" %>
+                    </div>
                   </div>
                   <% end %>
               <% end %>
