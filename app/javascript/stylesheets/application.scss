@@ -36,6 +36,11 @@ body{
     font-size: 30px;
 }
 
+//theme一覧ページ
+.testclass{
+    display: inline;
+}
+
 .life-list1{
     margin-top: 50px;
     margin-right: 10px;
@@ -83,6 +88,7 @@ body{
     margin-right: 10px;
     margin-bottom: 70px;
 }
+//theme一覧ページEND
 
 .user_new{
     margin-top: 50px; 
@@ -95,6 +101,7 @@ body{
   font-size: 15px;
 }
 
+//投稿一覧のBOXについて
 .card-title {
   overflow: hidden;
   display: -webkit-box;
@@ -114,6 +121,8 @@ body{
     widows: unset;
     margin-top: 50px; 
 }
+
+//投稿一覧のBOXについてEND
 
 .textbody-color {
     color: #212529;
@@ -442,3 +451,4 @@ p1 {
   }
 }
 @media screen and (max-width: 575.98px) {}
+
