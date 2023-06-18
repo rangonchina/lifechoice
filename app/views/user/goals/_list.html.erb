@@ -15,9 +15,6 @@
         <div class="card-body textbody-color">
           <div>
            <%= goal.user.name%>
-           <%# if goal.user == current_user %>
-            <%#= link_to "削除", destroy_goal_path(goal.id), class:"ml-5 btn btn-outline-secondary btn-sm",method: :delete, "data-confirm" => "本当に削除しますか？" %>
-           <%# end %>
           </div>
           <p><%= goal.user.gender %>   |   <%= goal.user.age %>歳</p>
           <div class="card-title" style= "height: 120px;">
