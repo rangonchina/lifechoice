@@ -45,11 +45,15 @@
         </div>
         <!--いいね機能end-->
       </div>
+      <div class="py-4">
+        <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
+        <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+      </div>
     </div>
 
     <div class="col col-12 col-sm-12 col-md-12 col-lg-6 comment-wrapper">
       <!--コメント機能-->
-      <div class="comment-wrapper my-3" style="max-height: 100vh;">
+      <div class="comment-wrapper my-3" style="max-height: 60vh;">
         <div>
           <p>コメント件数：<%= @goal.post_comments.count %></p>
         </div>
@@ -67,7 +71,7 @@
         <div>　
           <%= post_comment.comment %>
         </div>
-        <p> </p>
+       <i class="far fa-window-minimize text-black-50"></i>
         <% end %>
         <!--each end-->
       </div>
@@ -83,8 +87,5 @@
   </div>
   <!--row end -->
 
-  <div class="py-4">
-    <%= link_to "My Life Box", goals_path, class:"btn btn-outline-secondary" %>
-    <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
-  </div>
+ 
 </div>
