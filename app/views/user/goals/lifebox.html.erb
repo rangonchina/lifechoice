@@ -1,0 +1,17 @@
+<div class="container-fluid textbody-order">
+  <h2 class="my-5"><%= @user.name %>さん Life Box​</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= render partial: 'user/themes/theme_lists', locals: {mode: 'my_life_box'} %>
+      <div class="mb-3">
+        <%= link_to "Life Echo Box", goals_all_path, class:"btn btn-outline-secondary" %>
+        <%= link_to "Life List​",users_themes_path, class:"btn btn-outline-secondary" %>
+      </div>
+    </div>
+    <!--部分テンプレート-->
+    <%= render 'list', goals: @goals, p_index: @p_index %>
+    <!--部分テンプレートend-->
+  </div>
+</div>
+<%= paginate(@goals) %>

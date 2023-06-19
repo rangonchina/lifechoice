@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
     collection do
       get 'rate/:rate' => 'goals#rate', as: 'rate'
+      get 'lifebox/:user_id' => 'goals#lifebox', as: 'lifebox'
       end
     end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -15,6 +15,12 @@ class User::GoalsController < ApplicationController
     @p_index = true
   end
   
+  def lifebox
+    @user = User.find(params[:user_id])
+    @goals = Goal.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(9)
+    @p_index = true
+  end
+  
   def all_index
     @goals = Goal.order(created_at: :desc).page(params[:page]).per(9)
     # if params[:theme_id].present?
