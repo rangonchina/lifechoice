@@ -166,18 +166,18 @@ p1 {
 }
 
 @media screen and (max-width: 1500px) {
-    .mainvisual{
-        width:100%;
-        height:400px;
-        margin:auto;
-        margin-top: 5px;
-        background-image: url("../images/top-i.jpg");
-        background-size: cover;
-        background-position: 50% 25%;
-    }
-    .pc-message{
-        display: none;
-    }
+  .mainvisual{
+    width:100%;
+    height:400px;
+    margin:auto;
+    margin-top: 5px;
+    background-image: url("../images/top-i.jpg");
+    background-size: cover;
+    background-position: 50% 25%;
+  }
+  .pc-message{
+     display: none;
+  }
     
     .smart-message{
       display: block;
